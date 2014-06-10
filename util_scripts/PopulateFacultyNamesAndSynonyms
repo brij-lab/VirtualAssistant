@@ -1,0 +1,23 @@
+'''
+Created on 28-May-2014
+
+@author: brij
+'''
+from string import Template
+
+y_set = ('phone', 'office', 'residential', 'residential extension', 'mobile' , 'extension')
+
+def buildXSet(filename):
+	print "Finding all the synonyms to substitute in place of X..."
+	x_set = []
+	x_file = open(filename)  # '/home/brij/Documents/IIIT/Speech/LM/faculty_synset'
+	for line in x_file:
+		if line.strip() != "":
+			vals = line.split('-->')
+			x_set.append(vals[0].strip())
+			syns = vals[1]
+			syns = syns[syns.find("(") + 1:syns.find(")")]
+			for syn in syns.split(','):
+				x_set.append(syn.strip())
+	print "Done!"
+	return x_set

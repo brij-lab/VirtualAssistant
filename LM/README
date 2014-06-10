@@ -1,0 +1,4 @@
+text2wfreq < lm.txt | wfreq2vocab > lm.tmp.vocab
+text2idngram -vocab lm.tmp.vocab -idngram lm.idngram < lm.txt
+idngram2lm -vocab_type 0 -idngram lm.idngram -vocab lm.tmp.vocab -arpa faculty.arpa
+sphinx_lm_convert -i faculty.arpa -o faculty.lm.DMP

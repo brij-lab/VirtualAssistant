@@ -1,0 +1,116 @@
+<s> $X </s> 
+<s> What is the number of $X </s>
+<s> What is the $Y number of $X </s>
+<s> What is $X's number </s>
+<s> What is $X's $Y number </s>
+<s> What's the number of $X </s>
+<s> What's the $Y number of $X </s>
+<s> What's $X's number </s>
+<s> What's $X's $Y number </s>
+<s> Can you give me the number of $X </s>
+<s> Can you give me the $Y number of $X </s>
+<s> Can you give me $X's number </s>
+<s> Can you give me $X's $Y number </s>
+<s> Please give me the number of $X </s>
+<s> Please give me the $Y number of $X </s>
+<s> Please give me $X's number </s>
+<s> Please give me $X's $Y number </s>
+<s> Give me the number of $X </s>
+<s> Give me the $Y number of $X </s>
+<s> Give me $X's number </s>
+<s> Give me $X's $Y number </s>
+<s> Please can you give me the number of $X </s>
+<s> Please can you give me the $Y number of $X </s>
+<s> Please can you give me $X's number </s>
+<s> Please can you give me $X's $Y number </s>
+<s> I want the number of $X </s>
+<s> I want the $Y number of $X </s>
+<s> I want $X's number </s>
+<s> I want $X's $Y number </s>
+<s> Number of $X </s>
+<s> $Y number of $X </s>
+<s> $X's number </s>
+<s> $X's $Y number </s>
+<s> Number </s>
+<s> $Y number </s>
+<s> What is the number </s>
+<s> What is the $Y number </s>
+<s> What's the number </s>
+<s> What's the $Y number </s>
+<s> Can you give me the number </s>
+<s> Can you give me the $Y number </s>
+<s> Please give me the number </s>
+<s> Please give me the $Y number </s>
+<s> Give me the number </s>
+<s> Give me the $Y number </s>
+<s> Please can you give me the number </s>
+<s> Please can you give me the $Y number </s>
+<s> I want the number </s>
+<s> I want the $Y number </s>
+</s> $Z $X </s> 
+<s> What is the number of $Z $X </s>
+<s> What is the $Y number of $Z $X </s>
+<s> What is $Z $X's number </s>
+<s> What is $Z $X's $Y number </s>
+<s> What's the number of $Z $X </s>
+<s> What's the $Y number of $Z $X </s>
+<s> What's $Z $X's number </s>
+<s> What's $Z $X's $Y number </s>
+<s> Can you give me the number of $Z $X </s>
+<s> Can you give me the $Y number of $Z $X </s>
+<s> Can you give me $Z $X's number </s>
+<s> Can you give me $Z $X's $Y number </s>
+<s> Please give me the number of $Z $X </s>
+<s> Please give me the $Y number of $Z $X </s>
+<s> Please give me $Z $X's number </s>
+<s> Please give me $Z $X's $Y number </s>
+<s> Give me the number of $Z $X </s>
+<s> Give me the $Y number of $Z $X </s>
+<s> Give me $Z $X's number </s>
+<s> Give me $Z $X's $Y number </s>
+<s> Please can you give me the number of $Z $X </s>
+<s> Please can you give me the $Y number of $Z $X </s>
+<s> Please can you give me $Z $X's number </s>
+<s> Please can you give me $Z $X's $Y number </s>
+<s> I want the number of $Z $X </s>
+<s> I want the $Y number of $Z $X </s>
+<s> I want $Z $X's number </s>
+<s> I want $Z $X's $Y number </s>
+<s> Number of $Z $X </s>
+<s> $Y number of $Z $X </s>
+<s> $Z $X's number </s>
+<s> $Z $X's $Y number </s>
+<s> What is $X sir's number </s>
+<s> What is $X sir's $Y number </s>
+<s> What's $X sir's number </s>
+<s> What's $X sir's $Y number </s>
+<s> Can you give me $X sir's number </s>
+<s> Can you give me $X sir's $Y number </s> 
+<s> Please give me $X sir's number </s>
+<s> Please give me $X sir's $Y number </s>
+<s> Please can you give me $X sir's number </s>
+<s> Please can you give me $X sir's $Y number </s>
+<s> Give me $X sir's number </s>
+<s> Give me $X sir's $Y number </s>
+<s> I want $X sir's number </s>
+<s> I want $X sir's $Y number </s>
+<s> $X sir's number </s>
+<s> $X sir's $Y number </s>
+<s> What is $Z $X sir's number </s>
+<s> What is $Z $X sir's $Y number </s>
+<s> What's $Z $X sir's number </s>
+<s> What's $Z $X sir's $Y number </s>
+<s> Can you give me $Z $X sir's number </s>
+<s> Can you give me $Z $X sir's $Y number </s> 
+<s> Please give me $Z $X sir's number </s>
+<s> Please give me $Z $X sir's $Y number </s>
+<s> Please can you give me $Z $X sir's number </s>
+<s> Please can you give me $Z $X sir's $Y number </s>
+<s> Give me $Z $X sir's number </s>
+<s> Give me $Z $X sir's $Y number </s>
+<s> I want $Z $X sir's number </s>
+<s> I want $Z $X sir's $Y number </s>
+<s> $Z $X sir's number </s>
+<s> $Z $X sir's $Y number </s>
+
+

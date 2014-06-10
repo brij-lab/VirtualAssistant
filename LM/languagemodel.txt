@@ -1,0 +1,25 @@
+<s> $X </s> 
+<s> What is the number of $X </s>
+<s> What is the $Y number of $X </s>
+<s> What is $X's number </s>
+<s> What is $X's $Y number </s>
+<s> What's the number of $X </s>
+<s> What's the $Y number of $X </s>
+<s> What's $X's number </s>
+<s> What's $X's $Y number </s>
+<s> Can you give me the number of $X </s>
+<s> Can you give me the $Y number of $X </s>
+<s> Can you give me $X's number </s>
+<s> Can you give me $X's $Y number </s>
+<s> Please give me the number of $X </s>
+<s> Please give me the $Y number of $X </s>
+<s> Please give me $X's number </s>
+<s> Give me $X's $Y number </s>
+<s> Give me the number of $X </s>
+<s> Give me the $Y number of $X </s>
+<s> Give me $X's number </s>
+<s> Give me $X's $Y number </s>
+<s> Please can you give me the number of $X </s>
+<s> Please can you give me the $Y number of $X </s>
+<s> Please can you give me $X's number </s>
+<s> Please can you give me $X's $Y number </s>
