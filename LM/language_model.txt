@@ -47,7 +47,7 @@
 <s> Please can you give me the $Y number </s>
 <s> I want the number </s>
 <s> I want the $Y number </s>
-</s> $Z $X </s> 
+<s> $Z $X </s> 
 <s> What is the number of $Z $X </s>
 <s> What is the $Y number of $Z $X </s>
 <s> What is $Z $X's number </s>

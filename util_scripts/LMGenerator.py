@@ -20,16 +20,19 @@ def buildXSet(filename):
 			syns = syns[syns.find("(") + 1:syns.find(")")]
 			for syn in syns.split(','):
 				x_set.append(syn.strip())
+	x_file.close()
 	print "Done!"
 	return x_set
 
 def generateLM(template_file_path, x_set):
 	print "Generating all possible sentences..."
 	template_file = open(template_file_path)
-	lm_file = open('/home/brij/Documents/IIIT/Speech/LM/lm.txt', 'w')
+	lm_file = open('/home/brij/Documents/IIIT/Speech/ITRA/LM/lm.txt', 'w')
+	lm_test_file = open('/home/brij/Documents/IIIT/Speech/ITRA/LM/lm.test.txt', 'w')
 	count = 0
 	for template in template_file:
 		if template.strip() != '':
+			new_temp = True
 			t1 = Template(template)
 			for x_val in x_set:
 				x_sub = t1.safe_substitute(X=x_val)
@@ -42,23 +45,46 @@ def generateLM(template_file_path, x_set):
 							for z_val in z_set:
 								z_sub = t3.safe_substitute(Z=z_val)
 								lm_file.write(z_sub.lower())
+								if new_temp:
+									lm_test_file.write(z_sub.lower())
+									new_temp = False
 								count = count + 1
 								if count % 1000 == 0:
 									print "Generated %d sentences..." % count
 						else:
 							lm_file.write(y_sub.lower())
+							if new_temp:
+								lm_test_file.write(y_sub.lower())
+								new_temp = False
 							count = count + 1
 							if count % 1000 == 0:
 								print "Generated %d sentences..." % count
 				else:
-					lm_file.write(x_sub.lower())
-					count = count + 1
-					if count % 1000 == 0:
-						print "Generated %d sentences..." % count
+					if '$Z' in x_sub:
+						t4 = Template(x_sub)
+						for z_val in z_set:
+							z_sub = t4.safe_substitute(Z=z_val)
+							lm_file.write(z_sub.lower())
+							if new_temp:
+								lm_test_file.write(z_sub.lower())
+								new_temp = False
+							count = count + 1
+							if count % 1000 == 0:
+								print "Generated %d sentences..." % count
+					else:
+						lm_file.write(x_sub.lower())
+						if new_temp:
+							lm_test_file.write(x_sub.lower())
+							new_temp = False
+						count = count + 1
+						if count % 1000 == 0:
+							print "Generated %d sentences..." % count
+	lm_file.close()
+	lm_test_file.close()
 	print "Done! Generated total %d sentences." % count
                 
-x_set = buildXSet('/home/brij/Documents/IIIT/Speech/LM/faculty_synset')
-generateLM("/home/brij/Documents/IIIT/Speech/LM/language_model.txt", x_set)
+x_set = buildXSet('/home/brij/Documents/IIIT/Speech/ITRA/LM/faculty_synset')
+generateLM("/home/brij/Documents/IIIT/Speech/ITRA/LM/language_model.txt", x_set)
                
 
 
