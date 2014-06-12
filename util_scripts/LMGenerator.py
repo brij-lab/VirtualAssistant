@@ -5,7 +5,7 @@ Created on 28-May-2014
 '''
 from string import Template
 
-y_set = ('phone', 'office', 'residential', 'residential extension', 'mobile' , 'extension', 'residence', 'office extension', 'home')
+y_set = ('phone', 'office', 'residential', 'residential extension', 'mobile' , 'extension', 'residence', 'office extension', 'home', 'cell')
 z_set = ('mr', 'mrs', 'dr', 'mister', 'missus', 'doctor', 'sir', 'professor', 'prof')
 
 def buildXSet(filename):

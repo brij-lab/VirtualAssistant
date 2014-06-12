@@ -12,8 +12,9 @@ public class NLUParser {
 	private final static String[] stopWords = { "is", "what's", "of", "me" };
 	private final static List<String> STOP_WORDS = Arrays.asList(stopWords);
 
-	private final static String[] numberTypes = { "phone", "office",
-			"residential", "mobile", "extension", "residential extension" };
+	private final static String[] numberTypes = { "phone", "office", "cell",
+			"residential", "mobile", "extension", "residence", "home",
+			"office extension", "residential extension" };
 	private final static List<String> NUMBER_TYPES = Arrays.asList(numberTypes);
 
 	public FacultyContextInfo getContextInfo(String str) {
