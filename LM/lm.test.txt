@@ -4,17 +4,17 @@
 <s> what is abhijit mitra's number </s>
 <s> what is abhijit mitra's phone number </s>
 <s> what's the number of abhijit mitra </s>
-<s> what's the phone number of abhijit mitra </s>
+<s> what's the residence number of abhijit mitra </s>
 <s> what's abhijit mitra's number </s>
-<s> what's abhijit mitra's phone number </s>
+<s> what's abhijit mitra's mobile number </s>
 <s> can you give me the number of abhijit mitra </s>
 <s> can you give me the phone number of abhijit mitra </s>
 <s> can you give me abhijit mitra's number </s>
 <s> can you give me abhijit mitra's phone number </s>
 <s> please give me the number of abhijit mitra </s>
-<s> please give me the phone number of abhijit mitra </s>
+<s> please give me the office number of abhijit mitra </s>
 <s> please give me abhijit mitra's number </s>
-<s> please give me abhijit mitra's phone number </s>
+<s> please give me abhijit mitra's office extension number </s>
 <s> give me the number of abhijit mitra </s>
 <s> give me the phone number of abhijit mitra </s>
 <s> give me abhijit mitra's number </s>
@@ -22,7 +22,7 @@
 <s> please can you give me the number of abhijit mitra </s>
 <s> please can you give me the phone number of abhijit mitra </s>
 <s> please can you give me abhijit mitra's number </s>
-<s> please can you give me abhijit mitra's phone number </s>
+<s> please can you give me abhijit mitra's residential extension number </s>
 <s> i want the number of abhijit mitra </s>
 <s> i want the phone number of abhijit mitra </s>
 <s> i want abhijit mitra's number </s>
@@ -46,7 +46,7 @@
 <s> please can you give me the number </s>
 <s> please can you give me the phone number </s>
 <s> i want the number </s>
-<s> i want the phone number </s>
+<s> i want the home number </s>
 <s> mr abhijit mitra </s> 
 <s> what is the number of mr abhijit mitra </s>
 <s> what is the phone number of mr abhijit mitra </s>

@@ -9,8 +9,8 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 public class FacultyDatabase extends SQLiteAssetHelper {
 
-	private static final String DATABASE_NAME = "faculty20140607.sqlite";
-	private static final int DATABASE_VERSION = 2;
+	private static final String DATABASE_NAME = "faculty20140613.sqlite";
+	private static final int DATABASE_VERSION = 3;
 	private static final String TABLE_FACULTY_INFO = "faculty_info";
 	private static final String TABLE_FACULTY_NAMES = "faculty_names";
 	private static final String TABLE_INFO_TYPE = "info_type";

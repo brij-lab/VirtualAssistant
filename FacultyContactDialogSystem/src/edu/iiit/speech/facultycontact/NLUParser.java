@@ -1,15 +1,15 @@
 package edu.iiit.speech.facultycontact;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class NLUParser {
 
-	private final static String SALUTATIONS = " mr | mrs | dr | mister | missus | doctor | sir | professor | prof ";
+	private final static String SALUTATIONS = "mr|mrs|dr|mister|missus|doctor|sir|professor|prof";
 
-	private final static String[] stopWords = { "is", "what's", "of", "me" };
+	private final static String[] stopWords = { "me", "what", "give", "i",
+			"of", "what's", "please", "number", "you", "can", "want", "the",
+			"is", "sir's", "<s>", "</s>", "'s" };
 	private final static List<String> STOP_WORDS = Arrays.asList(stopWords);
 
 	private final static String[] numberTypes = { "phone", "office", "cell",
@@ -20,72 +20,35 @@ public class NLUParser {
 	public FacultyContextInfo getContextInfo(String str) {
 
 		FacultyContextInfo contextInfo = new FacultyContextInfo();
+		str = preProcess(str);
 
-		System.out.println("Question: " + str);
+		if (str != null && str != "") {
 
-		String fstr = preProcess(str);
-
-		/* Getting name out of the string */
-
-		int of_index = fstr.indexOf(" of ");
-		int apos_index = fstr.lastIndexOf("'s ");
-
-		if (of_index != -1) {
-
-			fstr = fstr.substring(of_index + 4);
-
-		} else if (apos_index != -1) {
-
-			/* Keep going till you find a stop word - this will get the name */
-
-			int bt_index = apos_index - 1;
-			int start_index = 0;
-			String ext_word = null;
-			List<String> nameList = new ArrayList<String>();
-			StringBuilder nameSB = new StringBuilder();
-			while (true) {
-
-				if (bt_index <= 0)
-					break;
-
-				start_index = bt_index;
-				while (bt_index >= 0 && fstr.charAt(bt_index) != ' ') {
-					bt_index--;
+			/* Getting number type out of string */
+			String nType = null;
+			for (String type : NUMBER_TYPES) {
+				if (str.indexOf(type) != -1) {
+					nType = type;
 				}
-				ext_word = fstr.substring(bt_index + 1, start_index + 1);
-				bt_index--;
-				if (!STOP_WORDS.contains(ext_word)) {
-
-					nameList.add(ext_word);
-
-				} else
-					break;
-
 			}
+			contextInfo.setNumberType(nType);
+			if (nType != null) {
 
-			Collections.reverse(nameList);
-			for (String name : nameList) {
-				nameSB.append(name).append(" ");
+				String name = str.replaceAll(nType, "").trim();
+				if (name != null && name != "") {
+					contextInfo.setName(name);
+				} else {
+					contextInfo.setName(null);
+				}
+
+			} else {
+				contextInfo.setName(str);
 			}
-
-			fstr = nameSB.toString().trim();
 
 		} else {
-
-			// Do nothing
-
+			contextInfo.setName(null);
+			contextInfo.setNumberType(null);
 		}
-
-		contextInfo.setName(fstr);
-
-		/* Getting number type out of string */
-		String nType = null;
-		for (String type : NUMBER_TYPES) {
-			if (str.indexOf(" " + type + " ") != -1) {
-				nType = type;
-			}
-		}
-		contextInfo.setNumberType(nType);
 
 		return contextInfo;
 	}
@@ -93,7 +56,17 @@ public class NLUParser {
 	private String preProcess(String str) {
 		String pStr = str.replaceAll("[^a-zA-Z' ]", "");
 		pStr = pStr.replaceAll(SALUTATIONS, "");
-		return pStr;
+		pStr = pStr.replaceAll("'s", "");
+		String[] sp = pStr.split(" ");
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < sp.length; i++) {
+			String word = sp[i].trim();
+			if (word != null && word != "" && !STOP_WORDS.contains(word)
+					&& word.length() > 2) {
+				sb.append(word).append(" ");
+			}
+		}
+		return sb.toString().trim();
 	}
 
 	public static void main(String[] args) {
