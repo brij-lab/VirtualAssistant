@@ -5,6 +5,9 @@ import java.util.Date;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.Spanned;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -13,7 +16,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class FacultyContactActivity extends Activity implements OnTouchListener, RecognitionListener {
+public class FacultyContactActivity extends Activity implements
+		OnTouchListener, RecognitionListener {
 	static {
 		System.loadLibrary("pocketsphinx_jni");
 	}
@@ -48,25 +52,22 @@ public class FacultyContactActivity extends Activity implements OnTouchListener,
 	/**
 	 * Editable text view.
 	 */
-	EditText edit_text;
-	
-	/**
-	 * Editable text view.
-	 */
-	EditText entity_text;
-	
+	TextView edit_text;
+
 	/**
 	 * Editable text view.
 	 */
 	EditText phnumber_text;
-	
+
 	/**
 	 * Initialize text parsing module
 	 */
 	NLUParser nluParser = new NLUParser();
-	
-	private FacultyDatabase db;
-	
+
+	DialogManager dialogManager = null;
+
+	boolean in_progress = false;
+
 	/**
 	 * Respond to touch events on the Speak button.
 	 * 
@@ -89,10 +90,12 @@ public class FacultyContactActivity extends Activity implements OnTouchListener,
 		case MotionEvent.ACTION_UP:
 			Date end_date = new Date();
 			long nmsec = end_date.getTime() - start_date.getTime();
-			this.speech_dur = (float)nmsec / 1000;
+			this.speech_dur = (float) nmsec / 1000;
 			if (this.listening) {
 				Log.d(getClass().getName(), "Showing Dialog");
-				this.rec_dialog = ProgressDialog.show(FacultyContactActivity.this, "", "Recognizing speech...", true);
+				this.rec_dialog = ProgressDialog.show(
+						FacultyContactActivity.this, "",
+						"Recognizing speech...", true);
 				this.rec_dialog.setCancelable(false);
 				this.listening = false;
 			}
@@ -115,14 +118,14 @@ public class FacultyContactActivity extends Activity implements OnTouchListener,
 		Button b = (Button) findViewById(R.id.Button01);
 		b.setOnTouchListener(this);
 		this.performance_text = (TextView) findViewById(R.id.PerformanceText);
-		this.edit_text = (EditText) findViewById(R.id.EditText01);
-		this.entity_text = (EditText) findViewById(R.id.EditText02);
+		this.edit_text = (TextView) findViewById(R.id.TextView01);
+		this.edit_text.setMovementMethod(new ScrollingMovementMethod());
 		this.phnumber_text = (EditText) findViewById(R.id.EditText03);
 		this.rec.setRecognitionListener(this);
 		this.rec_thread.start();
-		
+
 		/* testing db with synonyms */
-		db = new FacultyDatabase(this);
+		dialogManager = new DialogManager(this);
 	}
 
 	/** Called when partial results are generated. */
@@ -131,7 +134,7 @@ public class FacultyContactActivity extends Activity implements OnTouchListener,
 		final String hyp = b.getString("hyp");
 		that.edit_text.post(new Runnable() {
 			public void run() {
-				that.edit_text.setText(hyp);
+				// that.edit_text.setText(hyp);
 			}
 		});
 	}
@@ -143,19 +146,34 @@ public class FacultyContactActivity extends Activity implements OnTouchListener,
 		this.edit_text.post(new Runnable() {
 			public void run() {
 				Log.i("Output ######## ", hyp);
-				FacultyContextInfo entity = nluParser.getContextInfo(hyp);
-				Log.i("Parser", entity.toString());
-				that.edit_text.setText(hyp);
-				that.entity_text.setText(entity.toString());
-				String facultyInfo = db.getFacultyInfo(entity);
-				Log.i("Number", facultyInfo);
-				that.phnumber_text.setText(facultyInfo);
+				FacultyContextInfo facultyContext = nluParser
+						.getContextInfo(hyp);
+				Log.i("Parser", facultyContext.toString());
+				boolean info_complete = false;
+				if (in_progress) {
+					appendDialogText(hyp, "U");
+					info_complete = dialogManager.manage(facultyContext);
+				} else {
+					setDialogText(hyp, "U");
+					dialogManager.init(facultyContext);
+					in_progress = true;
+				}
+				if (info_complete) {
+					// get results from db
+					Log.i("info ######## ", "info complete");
+					in_progress = false;
+					dialogManager.showResults();
+					appendDialogText("Dialog Complete!", "S");
+				}
+				// String facultyInfo = db.verifyFacultyInfo(facultyContext);
+				// Log.i("Number", facultyInfo);
+				// that.phnumber_text.setText(facultyInfo);
 				Date end_date = new Date();
 				long nmsec = end_date.getTime() - that.start_date.getTime();
-				float rec_dur = (float)nmsec / 1000;
-				that.performance_text.setText(String.format("%.2f seconds %.2f xRT",
-															that.speech_dur,
-															rec_dur / that.speech_dur));
+				float rec_dur = (float) nmsec / 1000;
+				that.performance_text.setText(String.format(
+						"%.2f seconds %.2f xRT", that.speech_dur, rec_dur
+								/ that.speech_dur));
 				Log.d(getClass().getName(), "Hiding Dialog");
 				that.rec_dialog.dismiss();
 			}
@@ -169,5 +187,29 @@ public class FacultyContactActivity extends Activity implements OnTouchListener,
 				that.rec_dialog.dismiss();
 			}
 		});
+	}
+
+	private void setDialogText(String text, String tag) {
+		this.edit_text.setText(getFormattedText(text, tag) + "\n",
+				TextView.BufferType.SPANNABLE);
+	}
+
+	private void appendDialogText(String text, String tag) {
+		this.edit_text.setText(
+				this.edit_text.getText()
+						+ getFormattedText(text, tag).toString() + "\n",
+				TextView.BufferType.SPANNABLE);
+	}
+
+	private Spanned getFormattedText(String text, String tag) {
+		Spanned ftext = null;
+		if ("S".equals(tag)) {
+			ftext = Html.fromHtml("<font color='red'>" + tag + ": " + text
+					+ "</font>");
+		} else {
+			ftext = Html.fromHtml("<font color='green'>" + tag + ": " + text
+					+ "</font>");
+		}
+		return ftext;
 	}
 }

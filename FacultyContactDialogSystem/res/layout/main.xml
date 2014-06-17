@@ -1,28 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" android:background="@color/white">
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
 
-<EditText android:id="@+id/EditText01" android:layout_width="fill_parent"
-	android:text="Recieved Text..." android:contentDescription="Recognition results"
-	android:layout_height="wrap_content" android:layout_weight="1"></EditText>
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0"
+        android:contentDescription="Recognition results"
+        android:maxLines="10"
+        android:scrollbars="vertical"
+        android:text="Recieved Text..." >
+    </TextView>
 
-<EditText android:id="@+id/EditText02" android:layout_width="fill_parent"
-	android:text="Recieved Entity..." android:contentDescription="Entity"
-	android:layout_height="wrap_content" android:layout_weight="1"></EditText>
+    <EditText
+        android:id="@+id/EditText03"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:contentDescription="Phone number"
+        android:maxLines="1"
+        android:text="Phone number..." >
+    </EditText>
 
-<EditText android:id="@+id/EditText03" android:layout_width="fill_parent"
-	android:text="Phone number..." android:contentDescription="Phone number"
-	android:layout_height="wrap_content" android:layout_weight="1"></EditText>
+    <TextView
+        android:id="@+id/PerformanceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/performance_text" >
+    </TextView>
 
-<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/PerformanceText" android:text="@string/performance_text" android:layout_gravity="center_horizontal"></TextView>
-
-<Button android:id="@+id/Button01" android:layout_width="wrap_content"
-	android:layout_height="wrap_content" android:layout_weight="0"
-	android:layout_gravity="center_horizontal" android:text="Hold and Speak">
-</Button>
-
-
+    <Button
+        android:id="@+id/Button01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0"
+        android:text="Hold and Speak" >
+    </Button>
 
 </LinearLayout>

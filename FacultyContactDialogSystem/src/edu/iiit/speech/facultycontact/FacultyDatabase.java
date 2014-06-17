@@ -37,8 +37,10 @@ public class FacultyDatabase extends SQLiteAssetHelper {
 
 	}
 
-	public String getFacultyInfo(FacultyContextInfo facultyContextInfo) {
+	public FacultyVerifiedInfo verifyFacultyInfo(
+			FacultyContextInfo facultyContextInfo) {
 
+		FacultyVerifiedInfo verifiedInfo = new FacultyVerifiedInfo();
 		// Get faculty id by synonym provided by ASR hypothesis
 		String fac_id = null;
 		String fac_name = facultyContextInfo.getName();
@@ -51,8 +53,12 @@ public class FacultyDatabase extends SQLiteAssetHelper {
 		if (info_type_name != null && !"".equals(info_type_name.trim())) {
 			info_type_id = getInfoTypeIdByName(info_type_name.trim());
 		}
-		
-		System.out.println("fac_id : " + fac_id + " - info_type_id : " + info_type_id);
+		verifiedInfo.setFacultyID(fac_id);
+		verifiedInfo.setInfoTypeID(info_type_id);
+		return verifiedInfo;
+	}
+
+	public String getFacultyInfo(String fac_id, String info_type_id) {
 
 		String info = "Not Found!";
 		if (fac_id != null && info_type_id != null) {
@@ -60,8 +66,8 @@ public class FacultyDatabase extends SQLiteAssetHelper {
 			SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
 			qb.setTables(TABLE_FACULTY_INFO);
 			String[] sqlSelect = { "info" };
-			Cursor c1 = qb.query(db, sqlSelect, "faculty_id=" + fac_id + " and type=" + info_type_id, null, null,
-					null, null);
+			Cursor c1 = qb.query(db, sqlSelect, "faculty_id=" + fac_id
+					+ " and type=" + info_type_id, null, null, null, null);
 			if (c1.moveToFirst()) {
 				info = c1.getString(0);
 			}
@@ -81,6 +87,20 @@ public class FacultyDatabase extends SQLiteAssetHelper {
 			fac_id = c1.getString(0);
 		}
 		return fac_id;
+	}
+	
+	public String getFacultyNameById(String id) {
+		String fac_name = null;
+		SQLiteDatabase db = getReadableDatabase();
+		SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
+		qb.setTables(TABLE_FACULTY_NAMES);
+		String[] sqlSelect = { "name" };
+		Cursor c1 = qb.query(db, sqlSelect, "id=" + id, null, null,
+				null, null);
+		if (c1.moveToFirst()) {
+			fac_name = c1.getString(0);
+		}
+		return fac_name;
 	}
 
 	public String getInfoTypeIdByName(String name) {
