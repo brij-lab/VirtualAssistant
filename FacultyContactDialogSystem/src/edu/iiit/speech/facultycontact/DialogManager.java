@@ -45,8 +45,7 @@ public class DialogManager {
 				// util.showMsg(app,
 				// "Faculty name not found. Please tell a name.",
 				// "Missing : Name");
-				appendDialogText("Faculty name not found. Please tell a name.",
-						"S");
+				appendDialogText("Please tell a name.", "S");
 				// Toast.makeText(app, , Toast.LENGTH_LONG).show();
 
 			} else {
@@ -65,14 +64,16 @@ public class DialogManager {
 					}
 					// util.showMsg(app, "Names matching : " + sb.toString(),
 					// "Ambiguity found");
-					appendDialogText("Names matching : " + sb.toString(), "S");
+					appendDialogText(
+							"There are more than one " + contextInfo.getName()
+									+ " : " + sb.toString(), "S");
 					// Toast.makeText(app, "Ambiguity found." + sb.toString(),
 					// Toast.LENGTH_LONG).show();
 				} else {
 					dialogSlots.setFacultyID(verifyFacultyInfo.getFacultyID());
 				}
 			}
-		}
+		} 
 		if (dialogSlots.getInfoID() == null) {
 			if (verifyFacultyInfo.getInfoTypeID() == null
 					|| verifyFacultyInfo.getInfoTypeID() == "") {
@@ -121,8 +122,10 @@ public class DialogManager {
 	}
 
 	public void showResults() {
-		app.phnumber_text.setText(db.getFacultyInfo(dialogSlots.getFacultyID(),
-				dialogSlots.getInfoID()));
-
+		String facultyInfo = db.getFacultyInfo(dialogSlots.getFacultyID(), dialogSlots.getInfoID());
+		app.phnumber_text.setText(facultyInfo);
+		if (facultyInfo.matches("[0-9]+")) {
+			app.call_button.setEnabled(true);
+		}
 	}
 }

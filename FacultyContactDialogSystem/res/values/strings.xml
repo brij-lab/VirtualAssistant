@@ -3,5 +3,6 @@
     <string name="hello">Hello World, Faculty Contact System Demo!</string>
     <string name="app_name">Faculty Contact System</string>
 <color name="white">#FFF</color>
+<color name="green">#088A08</color>
 <string name="performance_text">0.00 seconds 0.00 xRT</string>
 </resources>

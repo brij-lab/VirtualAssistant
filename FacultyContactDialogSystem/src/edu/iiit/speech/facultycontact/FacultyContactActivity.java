@@ -4,6 +4,8 @@ import java.util.Date;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.Spanned;
@@ -11,6 +13,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.EditText;
@@ -57,7 +60,12 @@ public class FacultyContactActivity extends Activity implements
 	/**
 	 * Editable text view.
 	 */
-	EditText phnumber_text;
+	TextView phnumber_text;
+	
+	/**
+	 * Call button
+	 */
+	Button call_button;
 
 	/**
 	 * Initialize text parsing module
@@ -120,7 +128,18 @@ public class FacultyContactActivity extends Activity implements
 		this.performance_text = (TextView) findViewById(R.id.PerformanceText);
 		this.edit_text = (TextView) findViewById(R.id.TextView01);
 		this.edit_text.setMovementMethod(new ScrollingMovementMethod());
-		this.phnumber_text = (EditText) findViewById(R.id.EditText03);
+		this.phnumber_text = (TextView) findViewById(R.id.EditText03);
+		this.call_button = (Button) findViewById(R.id.ButtonCall);
+		call_button.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent callIntent = new Intent(Intent.ACTION_CALL);
+				callIntent.setData(Uri.parse("tel:" + phnumber_text));
+				startActivity(callIntent);
+				
+			}
+		});
 		this.rec.setRecognitionListener(this);
 		this.rec_thread.start();
 
@@ -163,7 +182,7 @@ public class FacultyContactActivity extends Activity implements
 					Log.i("info ######## ", "info complete");
 					in_progress = false;
 					dialogManager.showResults();
-					appendDialogText("Dialog Complete!", "S");
+					appendDialogText("That's all I need!", "S");
 				}
 				// String facultyInfo = db.verifyFacultyInfo(facultyContext);
 				// Log.i("Number", facultyInfo);
