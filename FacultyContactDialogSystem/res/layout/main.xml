@@ -3,16 +3,20 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/white"
-    android:orientation="vertical" >
+    android:configChanges="keyboardHidden|orientation"
+    android:orientation="vertical"
+    android:screenOrientation="portrait" >
+
+    <!-- android:screenOrientation="portrait" > -->
 
     <TextView
         android:id="@+id/TextView01"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.7"
+        android:layout_width="match_parent"
+        android:layout_height="324dp"
         android:contentDescription="Recognition results"
         android:scrollbars="vertical"
-        android:text="Recieved Text..." >
+        android:text="@string/greeting_text"
+        android:textSize="18dp" >
     </TextView>
 
     <RelativeLayout
@@ -22,24 +26,24 @@
 
         <TextView
             android:id="@+id/EditText03"
-            android:layout_width="300dp"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="left"
             android:layout_weight=".70"
             android:contentDescription="Phone number"
-            android:maxLines="1"
-            android:text="Phone number..." >
-        </TextView>
+            android:maxLines="2"
+            android:text="@string/phnumber_default_text"
+            android:textSize="18dp" />
 
         <Button
             android:id="@+id/ButtonCall"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
+            android:layout_gravity="right"
             android:layout_toRightOf="@+id/EditText03"
             android:layout_weight=".30"
             android:enabled="false"
-            android:text="Call" >
-        </Button>
+            android:text="@string/call_button_text" />
     </RelativeLayout>
 
     <TextView
@@ -56,7 +60,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0"
-        android:text="Hold and Speak" >
+        android:text="@string/speak_button_text" >
     </Button>
-
 </LinearLayout>

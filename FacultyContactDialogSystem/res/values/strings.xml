@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
     <string name="hello">Hello World, Faculty Contact System Demo!</string>
     <string name="app_name">Faculty Contact System</string>
-<color name="white">#FFF</color>
-<color name="green">#088A08</color>
-<string name="performance_text">0.00 seconds 0.00 xRT</string>
+
+    <color name="white">#FFF</color>
+    <color name="green">#088A08</color>
+
+    <string name="performance_text">0.00 seconds 0.00 xRT</string>
+    <string name="greeting_text">Hi! Please tell your query.</string>
+    <string name="call_button_text">Call</string>
+    <string name="speak_button_text">Hold and Speak</string>
+    <string name="reset_text">Reset dialog</string>
+    <string name="phnumber_default_text">Phone number...</string>
+    
+    <string name="dialog_end_text">That\'s all I need!</string>
+    <string name="info_insufficient">Information Insufficient</string>
+    <string name="name_not_found_text">Please tell a name.</string>
+    <string name="name_ambiguous_text">There are more than one </string>
+    <string name="numtype_not_found">Please tell a number type : Mobile, Office, Extension, etc.</string>
+
 </resources>

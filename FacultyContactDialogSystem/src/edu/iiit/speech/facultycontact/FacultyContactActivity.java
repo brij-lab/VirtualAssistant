@@ -11,12 +11,14 @@ import android.text.Html;
 import android.text.Spanned;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class FacultyContactActivity extends Activity implements
@@ -61,7 +63,7 @@ public class FacultyContactActivity extends Activity implements
 	 * Editable text view.
 	 */
 	TextView phnumber_text;
-	
+
 	/**
 	 * Call button
 	 */
@@ -131,13 +133,12 @@ public class FacultyContactActivity extends Activity implements
 		this.phnumber_text = (TextView) findViewById(R.id.EditText03);
 		this.call_button = (Button) findViewById(R.id.ButtonCall);
 		call_button.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
-				Intent callIntent = new Intent(Intent.ACTION_CALL);
-				callIntent.setData(Uri.parse("tel:" + phnumber_text));
+				Intent callIntent = new Intent(Intent.ACTION_CALL, Uri
+						.parse("tel:" + phnumber_text.getText().toString()));
 				startActivity(callIntent);
-				
 			}
 		});
 		this.rec.setRecognitionListener(this);
@@ -182,7 +183,7 @@ public class FacultyContactActivity extends Activity implements
 					Log.i("info ######## ", "info complete");
 					in_progress = false;
 					dialogManager.showResults();
-					appendDialogText("That's all I need!", "S");
+					appendDialogText(getString(R.string.dialog_end_text), "S");
 				}
 				// String facultyInfo = db.verifyFacultyInfo(facultyContext);
 				// Log.i("Number", facultyInfo);
@@ -197,6 +198,27 @@ public class FacultyContactActivity extends Activity implements
 				that.rec_dialog.dismiss();
 			}
 		});
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.options, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle item selection
+		switch (item.getItemId()) {
+		case R.id.reset:
+			in_progress = false;
+			setDialogText(getString(R.string.greeting_text), "S");
+			phnumber_text.setText(getString(R.string.phnumber_default_text));
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
 	}
 
 	public void onError(int err) {

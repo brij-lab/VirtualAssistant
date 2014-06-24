@@ -29,8 +29,9 @@ public class DialogManager {
 
 	public void init(FacultyContextInfo contextInfo) {
 		dialogSlots = new FacultyDialogSlots();
-		manage(contextInfo);
-		app.phnumber_text.setText("Information Insufficient");
+		if (!manage(contextInfo)) {
+			app.phnumber_text.setText(app.getString(R.string.info_insufficient));
+		}
 	}
 
 	public boolean manage(FacultyContextInfo contextInfo) {
@@ -40,13 +41,8 @@ public class DialogManager {
 		if (dialogSlots.getFacultyID() == null) {
 			if (verifyFacultyInfo.getFacultyID() == null
 					|| verifyFacultyInfo.getFacultyID() == "") {
-				// Check if name is not present
-				// prompt to choose faculty name
-				// util.showMsg(app,
-				// "Faculty name not found. Please tell a name.",
-				// "Missing : Name");
-				appendDialogText("Please tell a name.", "S");
-				// Toast.makeText(app, , Toast.LENGTH_LONG).show();
+				
+				appendDialogText(app.getString(R.string.name_not_found_text), "S");
 
 			} else {
 				// check for ambiguous info else assign to slot
@@ -62,13 +58,11 @@ public class DialogManager {
 							sb.append(", ");
 						}
 					}
-					// util.showMsg(app, "Names matching : " + sb.toString(),
-					// "Ambiguity found");
+
 					appendDialogText(
-							"There are more than one " + contextInfo.getName()
+							app.getString(R.string.name_ambiguous_text) + contextInfo.getName()
 									+ " : " + sb.toString(), "S");
-					// Toast.makeText(app, "Ambiguity found." + sb.toString(),
-					// Toast.LENGTH_LONG).show();
+					
 				} else {
 					dialogSlots.setFacultyID(verifyFacultyInfo.getFacultyID());
 				}
@@ -77,18 +71,13 @@ public class DialogManager {
 		if (dialogSlots.getInfoID() == null) {
 			if (verifyFacultyInfo.getInfoTypeID() == null
 					|| verifyFacultyInfo.getInfoTypeID() == "") {
+				
 				// Check if info id is not present
 				// prompt to choose Info
 				appendDialogText(
-						"Please tell a number type : Mobile, Office, Extension, etc.",
+						app.getString(R.string.numtype_not_found),
 						"S");
-				// util.showMsg(app,
-				// "Please tell a number type : Mobile, Office, Extension, etc.",
-				// "Missing : Number Type");
-				// Toast.makeText(app,
-				// "Number type not found. Please tell a number type.",
-				// Toast.LENGTH_LONG).show();
-
+				
 			} else {
 				// check for ambiguous info else assign to slot
 				dialogSlots.setInfoID(verifyFacultyInfo.getInfoTypeID());
