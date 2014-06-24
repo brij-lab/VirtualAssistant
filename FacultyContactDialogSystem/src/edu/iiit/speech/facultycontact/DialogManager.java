@@ -27,11 +27,14 @@ public class DialogManager {
 		util = new Util();
 	}
 
-	public void init(FacultyContextInfo contextInfo) {
+	public boolean init(FacultyContextInfo contextInfo) {
 		dialogSlots = new FacultyDialogSlots();
-		if (!manage(contextInfo)) {
-			app.phnumber_text.setText(app.getString(R.string.info_insufficient));
+		boolean complete = manage(contextInfo);
+		if (!complete) {
+			app.phnumber_text
+					.setText(app.getString(R.string.info_insufficient));
 		}
+		return complete;
 	}
 
 	public boolean manage(FacultyContextInfo contextInfo) {
@@ -41,8 +44,9 @@ public class DialogManager {
 		if (dialogSlots.getFacultyID() == null) {
 			if (verifyFacultyInfo.getFacultyID() == null
 					|| verifyFacultyInfo.getFacultyID() == "") {
-				
-				appendDialogText(app.getString(R.string.name_not_found_text), "S");
+
+				appendDialogText(app.getString(R.string.name_not_found_text),
+						"S");
 
 			} else {
 				// check for ambiguous info else assign to slot
@@ -60,24 +64,23 @@ public class DialogManager {
 					}
 
 					appendDialogText(
-							app.getString(R.string.name_ambiguous_text) + contextInfo.getName()
-									+ " : " + sb.toString(), "S");
-					
+							app.getString(R.string.name_ambiguous_text) + " "
+									+ contextInfo.getName() + " : "
+									+ sb.toString(), "S");
+
 				} else {
 					dialogSlots.setFacultyID(verifyFacultyInfo.getFacultyID());
 				}
 			}
-		} 
+		}
 		if (dialogSlots.getInfoID() == null) {
 			if (verifyFacultyInfo.getInfoTypeID() == null
 					|| verifyFacultyInfo.getInfoTypeID() == "") {
-				
+
 				// Check if info id is not present
 				// prompt to choose Info
-				appendDialogText(
-						app.getString(R.string.numtype_not_found),
-						"S");
-				
+				appendDialogText(app.getString(R.string.numtype_not_found), "S");
+
 			} else {
 				// check for ambiguous info else assign to slot
 				dialogSlots.setInfoID(verifyFacultyInfo.getInfoTypeID());
@@ -111,7 +114,13 @@ public class DialogManager {
 	}
 
 	public void showResults() {
-		String facultyInfo = db.getFacultyInfo(dialogSlots.getFacultyID(), dialogSlots.getInfoID());
+		appendDialogText(
+				"Showing " + db.getInfoTypeNameByID(dialogSlots.getInfoID())
+						+ " number of "
+						+ db.getFacultyNameById(dialogSlots.getFacultyID()),
+				"S");
+		String facultyInfo = db.getFacultyInfo(dialogSlots.getFacultyID(),
+				dialogSlots.getInfoID());
 		app.phnumber_text.setText(facultyInfo);
 		if (facultyInfo.matches("[0-9]+")) {
 			app.call_button.setEnabled(true);

@@ -4,6 +4,7 @@ import java.util.Date;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class FacultyContactActivity extends Activity implements
 		OnTouchListener, RecognitionListener {
@@ -132,13 +134,19 @@ public class FacultyContactActivity extends Activity implements
 		this.edit_text.setMovementMethod(new ScrollingMovementMethod());
 		this.phnumber_text = (TextView) findViewById(R.id.EditText03);
 		this.call_button = (Button) findViewById(R.id.ButtonCall);
+		final Context that = this;
 		call_button.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				Intent callIntent = new Intent(Intent.ACTION_CALL, Uri
-						.parse("tel:" + phnumber_text.getText().toString()));
-				startActivity(callIntent);
+				String phnum = phnumber_text.getText().toString();
+				if (phnum.matches("[0-9]+")) {
+					Intent callIntent = new Intent(Intent.ACTION_CALL, Uri
+							.parse("tel:" + phnum));
+					startActivity(callIntent);
+				} else {
+					Toast.makeText(that, "No valid phone number found!", Toast.LENGTH_LONG).show();
+				}
 			}
 		});
 		this.rec.setRecognitionListener(this);
@@ -175,15 +183,15 @@ public class FacultyContactActivity extends Activity implements
 					info_complete = dialogManager.manage(facultyContext);
 				} else {
 					setDialogText(hyp, "U");
-					dialogManager.init(facultyContext);
+					info_complete = dialogManager.init(facultyContext);
 					in_progress = true;
 				}
 				if (info_complete) {
 					// get results from db
 					Log.i("info ######## ", "info complete");
 					in_progress = false;
-					dialogManager.showResults();
 					appendDialogText(getString(R.string.dialog_end_text), "S");
+					dialogManager.showResults();
 				}
 				// String facultyInfo = db.verifyFacultyInfo(facultyContext);
 				// Log.i("Number", facultyInfo);

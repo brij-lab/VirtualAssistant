@@ -116,5 +116,19 @@ public class FacultyDatabase extends SQLiteAssetHelper {
 		}
 		return info_type_id;
 	}
+	
+	public String getInfoTypeNameByID(String id) {
+		String info_type_name = null;
+		SQLiteDatabase db = getReadableDatabase();
+		SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
+		qb.setTables(TABLE_INFO_TYPE);
+		String[] sqlSelect = { "value" };
+		Cursor c1 = qb.query(db, sqlSelect, "info_type_id=" + id, null, null,
+				null, null);
+		if (c1.moveToFirst()) {
+			info_type_name = c1.getString(0);
+		}
+		return info_type_name;
+	}
 
 }
