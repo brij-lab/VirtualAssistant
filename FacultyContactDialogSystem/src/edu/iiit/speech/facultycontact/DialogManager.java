@@ -72,6 +72,9 @@ public class DialogManager {
 					dialogSlots.setFacultyID(verifyFacultyInfo.getFacultyID());
 				}
 			}
+		} else {
+			// Change faculty name with new one if uttered
+			// TODO write logic to accept new name even if faculty name is set
 		}
 		if (dialogSlots.getInfoID() == null) {
 			if (verifyFacultyInfo.getInfoTypeID() == null
