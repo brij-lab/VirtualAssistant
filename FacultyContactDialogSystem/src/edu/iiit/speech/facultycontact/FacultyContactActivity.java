@@ -1,6 +1,7 @@
 package edu.iiit.speech.facultycontact;
 
 import java.util.Date;
+import java.util.Locale;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -22,6 +23,7 @@ import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.speech.tts.TextToSpeech;
 
 public class FacultyContactActivity extends Activity implements
 		OnTouchListener, RecognitionListener {
@@ -79,6 +81,8 @@ public class FacultyContactActivity extends Activity implements
 	DialogManager dialogManager = null;
 
 	boolean in_progress = false;
+
+	TextToSpeech tts;
 
 	/**
 	 * Respond to touch events on the Speak button.
@@ -145,15 +149,46 @@ public class FacultyContactActivity extends Activity implements
 							.parse("tel:" + phnum));
 					startActivity(callIntent);
 				} else {
-					Toast.makeText(that, "No valid phone number found!", Toast.LENGTH_LONG).show();
+					Toast.makeText(that, "No valid phone number found!",
+							Toast.LENGTH_LONG).show();
 				}
 			}
 		});
 		this.rec.setRecognitionListener(this);
 		this.rec_thread.start();
 
+		/* Initializing TTS */
+		tts = new TextToSpeech(getApplicationContext(),
+				new TextToSpeech.OnInitListener() {
+
+					@Override
+					public void onInit(int status) {
+						if (status == TextToSpeech.SUCCESS) {
+							int result = tts.setLanguage(Locale.ENGLISH);
+							if (result == TextToSpeech.LANG_MISSING_DATA
+									|| result == TextToSpeech.LANG_NOT_SUPPORTED) {
+								Log.e("TTS", "This language is not supported!");
+							}
+						}
+					}
+				});
+
 		/* testing db with synonyms */
 		dialogManager = new DialogManager(this);
+	}
+
+	@Override
+	public void onDestroy() {
+		// Don't forget to shutdown tts!
+		if (tts != null) {
+			tts.stop();
+			tts.shutdown();
+		}
+		super.onDestroy();
+	}
+	
+	public void speakOut (String text) {
+		tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
 	}
 
 	/** Called when partial results are generated. */

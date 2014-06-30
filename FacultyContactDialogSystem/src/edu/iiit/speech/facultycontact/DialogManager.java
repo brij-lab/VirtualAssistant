@@ -67,7 +67,6 @@ public class DialogManager {
 							app.getString(R.string.name_ambiguous_text) + " "
 									+ contextInfo.getName() + " : "
 									+ sb.toString(), "S");
-
 				} else {
 					dialogSlots.setFacultyID(verifyFacultyInfo.getFacultyID());
 				}
@@ -102,6 +101,7 @@ public class DialogManager {
 				app.edit_text.getText()
 						+ getFormattedText(text, tag).toString() + "\n",
 				TextView.BufferType.SPANNABLE);
+		app.speakOut(text);
 	}
 
 	private Spanned getFormattedText(String text, String tag) {
