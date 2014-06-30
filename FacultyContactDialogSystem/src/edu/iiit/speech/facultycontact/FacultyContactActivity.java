@@ -276,6 +276,9 @@ public class FacultyContactActivity extends Activity implements
 	private void setDialogText(String text, String tag) {
 		this.edit_text.setText(getFormattedText(text, tag) + "\n",
 				TextView.BufferType.SPANNABLE);
+		if ("S".equals(tag)) {
+			speakOut(text);
+		}
 	}
 
 	private void appendDialogText(String text, String tag) {
@@ -283,6 +286,9 @@ public class FacultyContactActivity extends Activity implements
 				this.edit_text.getText()
 						+ getFormattedText(text, tag).toString() + "\n",
 				TextView.BufferType.SPANNABLE);
+		if ("S".equals(tag)) {
+			speakOut(text);
+		}
 	}
 
 	private Spanned getFormattedText(String text, String tag) {
