@@ -9,7 +9,7 @@ public class NLUParser {
 
 	private final static String[] stopWords = { "me", "what", "give", "i",
 			"of", "what's", "please", "number", "you", "can", "want", "the",
-			"is", "sir's", "<s>", "</s>", "'s" };
+			"is", "sir's", "<s>", "</s>", "'s", "a", "thanks", "thank" };
 	private final static List<String> STOP_WORDS = Arrays.asList(stopWords);
 
 	private final static String[] numberTypes = { "phone", "office", "cell",
@@ -61,8 +61,7 @@ public class NLUParser {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < sp.length; i++) {
 			String word = sp[i].trim();
-			if (word != null && word != "" && !STOP_WORDS.contains(word)
-					&& word.length() > 2) {
+			if (word != null && word != "" && !STOP_WORDS.contains(word)) {
 				sb.append(word).append(" ");
 			}
 		}

@@ -175,6 +175,7 @@ public class RecognizerTask implements Runnable {
 				"/mnt/sdcard/edu.cmu.pocketsphinx/lm/en_US/hub4.5000.DMP");*/
 		c.setString("-dict",
 				"/mnt/sdcard/edu.cmu.pocketsphinx/lm/en_IN/faculty.dic");
+		//c.setString("-fsg", "/mnt/sdcard/edu.cmu.pocketsphinx/lm/en_IN/faculty.fsg");
 		c.setString("-lm",
 				"/mnt/sdcard/edu.cmu.pocketsphinx/lm/en_IN/faculty.lm.DMP");
 		/*
@@ -190,8 +191,13 @@ public class RecognizerTask implements Runnable {
 		c.setInt("-maxhmmpf", 2000);
 		c.setInt("-maxwpf", 10);
 		c.setInt("-pl_window", 2);
+		c.setInt("-upperf", 3400);
+		c.setInt("-nfft", 256);
+		c.setInt("-nfilt", 31);
 		c.setBoolean("-backtrace", true);
 		c.setBoolean("-bestpath", false);
+		c.setInt("-op_mode", 2);
+		c.setString("-mode", "fsg");
 		this.ps = new Decoder(c);
 		this.audio = null;
 		this.audioq = new LinkedBlockingQueue<short[]>();

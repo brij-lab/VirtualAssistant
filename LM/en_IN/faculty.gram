@@ -1,0 +1,24 @@
+#JSGF V1.0;
+/**
+ * JSGF Grammar for Faculty Information System
+ */
+grammar facultyGrammer;
+
+public <basicCmd1> = <startPolite> <command1> <endPolite>;
+public <basicCmd2> = <startPolite> <command2> <endPolite>;
+public <basicCmd3> = <numberType>;
+public <basicCmd4> = <startSalutation> <facultyName> <endSalutation>;
+
+<command1> = <action> <numberType> of <startSalutation> <facultyName> <endSalutation>;
+<command2> = <action> <startSalutation> <facultyName> <endSalutation> <numberType>;
+
+<action> = (what is | [can you] give [me] | i want)*;
+<numberType> = [the | a] (phone | office | cell | residential | mobile | residence | home) [extension] number;
+
+<startPolite> = (please)*;
+<endPolite> = [ please | thanks | thank you ];
+
+<startSalutation> = (mr | mrs | dr | sir | professor | prof)*;
+<endSalutation> = [sir];
+
+<facultyName> = [abhijit [mitra] | amitash [ojha] | anil kumar [vuppala] | anoop [namboodiri] | anubha [gupta] | ashok kumar [das] | azeemuddin [syed] | r k bagga | banatanwi das [mahapatra] | peri bhaskararao | bipin indurkhya | bruhadeshwar [bezawada] | chakrapani [bommaraju] | chandrasekher [mukku] | chenna rajaram | deva priyakumar | devansh [mittal] | dipti [misra] [sharma] | giridhar [rao] | govindarajulu | harjinder [singh] | harsh [satya] | indranil [chakarbarty] | [c v] jawahar | jayanthi [sivaswamy] | jayashree [ratnam] | kamal [karlapalem] | [c n] kaul | kavita [vemuri] | kirti [garg] | kishore [kothapalli] | kishore [prahallad] | [krishna | p k] reddy | madhava [krishna] | marimuthu [krishnan] | mulualem [teku] | naini [arora] | nanda kishore [acharya] | p j [narayanan | n] | navjyoti [singh] | neelima [satyam] | nita [parekh] | piyush [bansal] | prabhakar [bhimalapuram] | pradeep kumar | pranav [vashishta] | prashanth [reddy] [mannem] | priyanka [srivastava] | radhika [mamidi] | raghu [reddy] | [k s] rajan | rajeev [sangal] | rajesh kumar [tavva] | rama murthy | ramachandra prasad | rambabu [kalla] | [p r k] rao | sandhya [kode] | [k r] sharma | sharmistha [kar] | shatrunjay [rawat] | shubhajit [roy] [chowdhury] | soma [paul] | sonal [nimbkar] | srinathan [kannan] | sriram | sunil [lohar] | suresh [purini] | suril [vijaykumar] [shah] | suryakanth [v] [gangashetty] | syamasundar [reddy] | tapan [kumar] [sau] | vasudeva [verma] | venkata dilip [kumar] | venkatesh [choppella] | venkateswarlu | vijay prakash | vijaya sankara [rao] | vikram [pudi] | vinay [kumar] [mittal] | vineet [chaitanya] | vishal [garg] | viswanath | yegnanarayana | yegna];

@@ -1,3 +1,6 @@
+a	AH
+i	AY
+want	W AO N T
 what	W AO T
 is	IH ZH
 the	DH AH
@@ -8,10 +11,12 @@ you	Y UW
 give	G IH V
 me	M IY
 please	P L IY Z
+thank	TH AE N K
+thanks	TH AE N K S
 phone	F OW N
 office	AO F IH S
 residence	R EH Z IH D EH N S
-residential	R EH Z IH D EH N SH I AH L
+residential	R EH Z IH D EH N SH IH AH L
 home	HH OW M
 mobile	M OW B AY L
 cell	S EH L
@@ -19,7 +24,9 @@ extension	EH K S T EH N SH AH N
 sir	S ER
 dr	D OW K T ER
 mr	M IH S T ER
-prof	P R OW F EH S S ER
+professor	P R OW F EH S S ER
+mrs	M IH S IH Z
+prof	P R OW F
 abhijit	AH B IH JH IY TH
 acharya	AA CH AA R Y AA
 amitash	AH M IH TH AA SH
@@ -33,13 +40,14 @@ bagga	B AH G G AA
 banatanwi	B AH N AA TH AH N V IY
 bansal	B AH N S AH L
 bezawada B EY ZH AH V AA D AH
-bhaskararao	B AA S K A R R AA OW
+bhaskararao	B AA S K AH R R AA OW
 kishore	K IH SH OW R
 prahallad	P R AH L AA DH
 bhimalapuram	B IH M AH L AA P UH R AH M
 bipin	B IH P IH N
-bommaraju	B OW M M AH R AA J UH
+bommaraju	B OW M M AH R AA JH UH
 bruhadeshwar	B R AH D EY SH V AH R
+c	S IY
 chaitanya	CH AE TH AH N Y AA
 chakarbarty	CH AH K R AH B AH R TH IY
 chakrapani	CH AH K R AH P AA N IY
@@ -54,19 +62,22 @@ dilip	DH IH L IY P
 dipti	DH IY P TH IH
 garg	G ER G
 giridhar	G IH R IH DH ER
-govindarajulu	G OW V IH N DH AH R AA J UH L UH
+govindarajulu	G OW V IH N DH AH R AA JH UH L UH
 gupta	G UH P TH AA
 harjinder	HH ER JH IH N DH ER
 harsh	HH ER SH
 harsha	HH ER SH AA
 indranil	IH N DH R AH N IY L
 indurkhya	IH N DH UH R K Y AA
+j	JH EY
 jawahar	JH AH V AA HH ER
 jayanthi	JH AH Y AH N TH IY
 jayashree	JH AH Y AH SH R IY
-kalla	K AH LL AH
+k	K EY
+kalla	K AH L L AH
 kamal	K AH M AH L
 kannan	K AH N N AH N
+kar	K AH R
 karlapalem	K AH R L AA P AH L AH M
 kaul	K AO L
 kavita	K AH V IH TH AA
@@ -82,11 +93,13 @@ mahapatra	M AH HH AA P AA TH R AA
 mamidi	M AA M IH DH IY
 mannem	M AA N EY M
 marimuthu	M AH R IH M UH TH UH
+misra	M IH SH R AA
 mitra	M IH TH R AA
 mittal	M IH TH TH AH L
 mukku	M UH K K UH
 mulualem	M UH L UH AA L AH M
 murthy	M UH R TH IY
+n	EH N
 naini	N AY N IY
 namboodiri	N AH M B UH DH IH R IY
 nanda	N AH N DH AA
@@ -97,12 +110,11 @@ neelima	N IY L IH M AA
 nimbkar	N IH M B K AH R
 nita	N IH TH AH
 ojha	OW JH AH
+p	P IY
 parekh	P AH R EY K
 paul	P AO L
 peri P EH R IY
 piyush	P IH Y UH SH
-pjn	P IY J EY EH N
-please	P L IY Z
 prabhakar	P R AH B AH K ER
 pradeep	P R AH DH IY P
 prakash	P R AH K AH SH
@@ -113,6 +125,7 @@ priyakumar	P R IH Y AH K UH M AH R
 priyanka	P R IH Y AH N K AA
 pudi	P UH DH IY
 purini	P UH R IY N IY
+r	AA R
 radhika	R AA DH IH K AH
 raghu	R AH G UH
 rajan	R AA JH AH N
@@ -127,6 +140,7 @@ ratnam	R AH TH N AH M
 rawat	R AA V AH TH
 reddy	R EY D D IY
 roy	R OY
+s	EH S
 sandhya	S AH N DH Y AH
 sangal	S AH NG AH L
 sankara	S AH N K AH R AA
@@ -135,9 +149,9 @@ satyam	S AH TH Y AH M
 sau	S AW
 shah	SH AH
 sharma	SH ER R M AH
-sharmistha	SH ER M I SH TH AH
+sharmistha	SH ER M IH SH TH AH
 shatrunjay	SH AH TH R UH N JH AY
-shubhajit	SH UH B AH J IY TH
+shubhajit	SH UH B AH JH IY TH
 singh	S IH N G
 sivaswamy	S IH V AH S V AH M IY
 soma	S OW M AH
@@ -154,6 +168,7 @@ syed	S AH IY D
 tapan	T AH P AH N
 tavva	T AH V V AA
 teku	T EY K UH
+v	V IY
 vashishta	V AH SH IH SH TH AA
 vasudeva	V AA S UH D EY V
 vemuri	V EY M UH R IH
@@ -171,4 +186,5 @@ vishal	V IH SH AH L
 viswanath	V IH S W AH N AA TH
 vuppala	V UH P P AH L AH
 yegnanarayana	Y EH G N AH N AH R AA Y AH N
+yegna	Y EH G N AA
 gangashetty	G AH NG AH SH EY T T IY
