@@ -13,6 +13,26 @@ me	M IY
 please	P L IY Z
 thank	TH AE N K
 thanks	TH AE N K S
+ko	K OW
+ke	K EY
+par	P ER
+pe	P EY
+call	K AO L
+batao	B AH TH AO
+ko_call_karo	K OW K AO L K AH R OW
+ko_call_lagao	K OW K AO L L AH G AW
+ko_call_kijiye	K OW K AO L K IY J IH Y EH
+ko_call_kariye	K OW K AO L K AH R IH Y EH
+pe_call_karo	P EY K AO L K AH R OW
+pe_call_lagao	P EY K AO L L AH G AW
+pe_call_kijiye	P EY K AO L K IY J IH Y EH
+pe_call_kariye	P EY K AO L K AH R IH Y EH
+par_call_karo	P ER K AO L K AH R OW
+par_call_lagao	P ER K AO L L AH G AW
+par_call_kijiye	P ER K AO L K IY J IH Y EH
+par_call_kariye	P ER K AO L K AH R IH Y EH
+missed_call_batao	M IH S D K AO L B AH TH AO
+show_me_the_missed_calls	SH OW M IY DH AH M IH S D K AO L S
 phone	F OW N
 office	AO F IH S
 residence	R EH Z IH D EH N S
@@ -27,164 +47,134 @@ mr	M IH S T ER
 professor	P R OW F EH S S ER
 mrs	M IH S IH Z
 prof	P R OW F
-abhijit	AH B IH JH IY TH
-acharya	AA CH AA R Y AA
-amitash	AH M IH TH AA SH
-anil	AH N IH L
+abhijit_mitra	AH B IH JH IY TH M IH TH R AA
+amitash_ojha	AH M IH TH AA SH OW JH AH
+anil_kumar	AH N IH L K UH M AA R
+anil_kumar_vuppala	AH N IH L K UH M AA R V UH P P AH L AH
 anoop	AH N UH P
+anoop_namboodiri	AH N UH P N AH M B UH DH IH R IY
 anubha	AH N UH B AA
-arora	AH R OW R AA
+anubha_gupta	AH N UH B AA G UH P TH AA
 ashok	AH SH OW K
+ashok_kumar	AH SH OW K K UH M AA R
+ashok_kumar_das	AH SH OW K K UH M AA R DH AA S
 azeemuddin	AH ZH IY M UH DH IY N
+azeemuddin_syed	AH ZH IY M UH DH IY N S AH IY D
 bagga	B AH G G AA
+bagga_r_k	B AH G G AA AA R K EY
+r_k_bagga	AA R K EY B AH G G AA
 banatanwi	B AH N AA TH AH N V IY
-bansal	B AH N S AH L
-bezawada B EY ZH AH V AA D AH
-bhaskararao	B AA S K AH R R AA OW
-kishore	K IH SH OW R
-prahallad	P R AH L AA DH
-bhimalapuram	B IH M AH L AA P UH R AH M
-bipin	B IH P IH N
-bommaraju	B OW M M AH R AA JH UH
-bruhadeshwar	B R AH D EY SH V AH R
-c	S IY
-chaitanya	CH AE TH AH N Y AA
-chakarbarty	CH AH K R AH B AH R TH IY
-chakrapani	CH AH K R AH P AA N IY
-chandrasekher	CH AH N DH R AH SH EY K AH R
-chenna	CH EY N N AA
-choppella	CH OW P EY L L AA
-chowdhury	CH OW DH AH R IY
-das	DH AA S
-deva	DH EY V AA
-devansh	DH EY V AA N SH
-dilip	DH IH L IY P
-dipti	DH IY P TH IH
-garg	G ER G
-giridhar	G IH R IH DH ER
-govindarajulu	G OW V IH N DH AH R AA JH UH L UH
-gupta	G UH P TH AA
-harjinder	HH ER JH IH N DH ER
-harsh	HH ER SH
-harsha	HH ER SH AA
-indranil	IH N DH R AH N IY L
-indurkhya	IH N DH UH R K Y AA
-j	JH EY
-jawahar	JH AH V AA HH ER
-jayanthi	JH AH Y AH N TH IY
-jayashree	JH AH Y AH SH R IY
-k	K EY
-kalla	K AH L L AH
-kamal	K AH M AH L
-kannan	K AH N N AH N
-kar	K AH R
-karlapalem	K AH R L AA P AH L AH M
-kaul	K AO L
-kavita	K AH V IH TH AA
-kirti	K IY R TH IY
-kode	K OW D EY
-kothapalli	K OW TH AH P AH L L IY
-krishna	K R IH SH N AA
-krishnan	K R IH SH N AH N
-kumar	K UH M AA R
-lohar	L OW HH AA R
-madhava	M AA DH AH V AA
+banatanwi_das	B AH N AA TH AH N V IY DH AA S
+banatanwi_das_mahapatra	B AH N AA TH AH N V IY DH AA S M AH HH AA P AA TH R AA
 mahapatra	M AH HH AA P AA TH R AA
-mamidi	M AA M IH DH IY
-mannem	M AA N EY M
+bhaskararao	B AA S K AH R R AA OW
+bhaskararao_peri	B AA S K AH R R AA OW P EH R IY
+peri_bhaskararao	P EH R IY B AA S K AH R R AA OW
+bipin_indurkhya	B IH P IH N IH N DH UH R K Y AA
+bezawada B EY ZH AH V AA D AH
+bruhadeshwar	B R AH D EY SH V AH R
+bruhadeshwar_bezawada	B R AH D EY SH V AH R B EY ZH AH V AA D AH
+chakrapani_bommaraju	CH AH K R AH P AA N IY B OW M M AH R AA JH UH
+chandrasekher	CH AH N DH R AH SH EY K AH R
+chandrasekher_mukku	CH AH N DH R AH SH EY K AH R M UH K K UH
+chenna	CH EY N N AA
+chenna_rajaram	CH EY N N AA R AA JH AA R AA M
+deva_priyakumar	DH EY V AA P R IH Y AH K UH M AH R
+devansh_mittal	DH EY V AA N SH M IH TH TH AH L
+dipti_sharma	DH IY P TH IH SH ER R M AH
+dipti_misra_sharma	DH IY P TH IH M IH SH R AA SH ER R M AH
+giridhar	G IH R IH DH ER
+giridhar_rao	G IH R IH DH ER R AA OW
+govindarajulu	G OW V IH N DH AH R AA JH UH L UH
+harjinder_singh	HH ER JH IH N DH ER S IH N G
+harsha_satya	HH ER SH AA S AH TH Y AA
+indranil	IH N DH R AH N IY L
+indranil_chakarbarty	IH N DH R AH N IY L CH AH K R AH B AH R TH IY
+jawahar	JH AH V AA HH ER
+jawahar_c_v	JH AH V AA HH ER S IY V IY
+jayanthi	JH AH Y AH N TH IY
+jayanthi_sivaswamy	JH AH Y AH N TH IY S IH V AH S V AH M IY
+jayashree	JH AH Y AH SH R IY
+jayashree_ratnam	JH AH Y AH SH R IY R AH TH N AH M
+kamal_karlapalem	K AH M AH L K AH R L AA P AH L AH M
+c_n_kaul	S IY EH N K AO L
+kavita	K AH V IH TH AA
+kavita_vemuri	K AH V IH TH AA V EY M UH R IH
+kirti	K IY R TH IY
+kirti_garg	K IY R TH IY G ER G
+kishore_kothapalli	K IH SH OW R K OW TH AH P AH L L IY
+kishore_s_p	K IH SH OW R EH S P IY
+kishore_prahallad	K IH SH OW R P R AH L AA DH
+k_p	K EY P IY
+krishna_reddy	K R IH SH N AA R EY D D IY
+p_k_reddy	P IY K EY R EY D D IY
+madhava_krishna	M AA DH AH V K R IH SH N AA
 marimuthu	M AH R IH M UH TH UH
-misra	M IH SH R AA
-mitra	M IH TH R AA
-mittal	M IH TH TH AH L
-mukku	M UH K K UH
+marimuthu_krishnan	M AH R IH M UH TH UH K R IH SH N AH N
 mulualem	M UH L UH AA L AH M
-murthy	M UH R TH IY
-n	EH N
-naini	N AY N IY
-namboodiri	N AH M B UH DH IH R IY
-nanda	N AH N DH AA
-narayan	N AA R AA Y AH N
-narayanan	N AA R AA Y AH N AH N
+mulualem_teku	M UH L UH AA L AH M T EY K UH
+naini_arora	N AY N IY AH R OW R AA
+nanda_kishore	N AH N DH AA K IH SH OW R
+nanda_kishore_acharya	N AH N DH AA K IH SH OW R AA CH AA R Y AA
+p_j_n	P IY JH EY EH N
+p_j_narayanan	P IY JH EY N AA R AA Y AH N AH N
 navjyoti	N AH V JH Y OW TH IY
+navjyoti_singh	N AH V JH Y OW TH IY S IH N G
 neelima	N IY L IH M AA
-nimbkar	N IH M B K AH R
-nita	N IH TH AH
-ojha	OW JH AH
-p	P IY
-parekh	P AH R EY K
-paul	P AO L
-peri P EH R IY
-piyush	P IH Y UH SH
+neelima_satyam	N IY L IH M AA S AH TH Y AH M
+nita_parekh	N IH TH AH P AH R EY K
+piyush_bansal	P IH Y UH SH B AH N S AH L
 prabhakar	P R AH B AH K ER
-pradeep	P R AH DH IY P
-prakash	P R AH K AH SH
-pranav	P R AH N AH V
-prasad	P R AH S AH DH
-prashanth	P R AH SH AH N TH
-priyakumar	P R IH Y AH K UH M AH R
-priyanka	P R IH Y AH N K AA
-pudi	P UH DH IY
-purini	P UH R IY N IY
-r	AA R
-radhika	R AA DH IH K AH
-raghu	R AH G UH
+prabhakar_bhimalapuram	P R AH B AH K ER B IH M AH L AA P UH R AH M
+pradeep_kumar	P R AH DH IY P K UH M AA R
+pranav_vashishta	P R AH N AH V V AH SH IH SH TH AA
+prashanth_reddy	P R AH SH AH N TH R EY D D IY
+prashanth_reddy_mannem	P R AH SH AH N TH R EY D D IY M AA N EY M
+priyanka_srivastava	P R IH Y AH N K AA S R IY V AA S TH AH V AH
+radhika_mamidi	R AA DH IH K AH M AA M IH DH IY
+raghu_reddy	R AH G UH R EY D D IY
 rajan	R AA JH AH N
-rajaram	R AA JH AA R AA M
-rajeev	R AA JH IY V
-rajesh	R AA JH EY SH
-rama	R AA M AH
-ramachandra	R AA M CH AH N DH R AH
+k_s_rajan	K EY EH S R AA JH AH N
+rajeev_sangal	R AA JH IY V S AH NG AH L
+rajesh_kumar	R AA JH EY SH K UH M AA R
+rajesh_kumar_tavva	R AA JH EY SH K UH M AA R T AH V V AA
+rama_murthy	R AA M AH M UH R TH IY
+ramachandra_prasad	R AA M CH AH N DH R AH P R AH S AH DH
 rambabu	R AA M B AA B UH
-rao	R AO
-ratnam	R AH TH N AH M
-rawat	R AA V AH TH
-reddy	R EY D D IY
-roy	R OY
-s	EH S
-sandhya	S AH N DH Y AH
-sangal	S AH NG AH L
-sankara	S AH N K AH R AA
-satya	S AH TH Y AA
-satyam	S AH TH Y AH M
-sau	S AW
-shah	SH AH
-sharma	SH ER R M AH
+rambabu_kalla	R AA M B AA B UH K AH L L AH
+p_r_k_rao	P IY AA R K EY R AO
+sandhya_kode	S AH N DH Y AH K OW D EY
+k_r_sharma	K EY AA R SH ER R M AH
 sharmistha	SH ER M IH SH TH AH
-shatrunjay	SH AH TH R UH N JH AY
-shubhajit	SH UH B AH JH IY TH
-singh	S IH N G
-sivaswamy	S IH V AH S V AH M IY
-soma	S OW M AH
-sonal	S OW N AH L
-srinathan	S R IY N AA TH AH N
+sharmistha_kar	SH ER M IH SH TH AH K AH R
+shatrunjay_rawat	SH AH TH R UH N JH AY R AA V AH TH
+shubhajit_roy	SH UH B AH JH IY TH R OY
+shubhajit_roy_chowdhury	SH UH B AH JH IY TH R OY CH OW DH AH R IY
+soma_paul	S OW M AH P AO L
+sonal_nimbkar	S OW N AH L N IH M B K AH R
+kannan_srinathan	K AH N N AH N S R IY N AA TH AH N
+kannan	K AH N N AH N
 sriram	S R IY R AA M
-srivastava	S R IY V AA S TH AH V AH
-sunil	S UH N IY L
-suresh	S UH R EY SH
-suril	S UH R IY L
+sunil_lohar	S UH N IY L L OW HH AA R
+suresh_purini	S UH R EY SH P UH R IY N IY
+suril_shah	S UH R IY L SH AH
+suril_vijaykumar_shah	S UH R IY L V IH JH EY K UH M AA R SH AH
 suryakanth	S UH R Y AH K AA N TH
-syamasundar	S Y AA M AH S UH N DH ER
-syed	S AH IY D
-tapan	T AH P AH N
-tavva	T AH V V AA
-teku	T EY K UH
-v	V IY
-vashishta	V AH SH IH SH TH AA
-vasudeva	V AA S UH D EY V
-vemuri	V EY M UH R IH
-venkata	V EY N K AH T AA
-venkatesh	V EY N K AH T EY SH
+gangashetty	G AH NG AH SH EY T T IY
+syamasundar_reddy	S Y AA M AH S UH N DH ER R EY D D IY
+tapan_kumar	T AH P AH N K UH M AA R
+tapan_kumar_sau	T AH P AH N K UH M AA R S AW
+vasudeva_verma	V AA S UH D EY V V ER M AH
+venkata_dilip_kumar	V EY N K AH T AA DH IH L IY P K UH M AA R
+venkatesh_choppella	V EY N K AH T EY SH CH OW P EY L L AA
 venkateswarlu	V EY N K AH T EY SH W ER L UH
-verma	V ER M AH
-vijay	V IH JH EY
-vijaya	V IH JH EH Y AH
-vijaykumar	V IH JH EY K UH M AA R
-vikram	V IH K R AH M
-vinay	V IH N AY
-vineet	V IH N IY TH
-vishal	V IH SH AH L
+vijay_prakash	V IH JH EY P R AH K AH SH
+vijaya_sankara_rao	V IH JH EH Y AH S AH N K AH R AA R AO
+vikram_pudi	V IH K R AH M P UH DH IY
+vinay_kumar	V IH N AY K UH M AA R
+vinay_kumar_mittal	V IH N AY K UH M AA R M IH TH TH AH L
+vineet_chaitanya	V IH N IY TH CH AE TH AH N Y AA
+vishal_garg	V IH SH AH L G ER G
 viswanath	V IH S W AH N AA TH
-vuppala	V UH P P AH L AH
 yegnanarayana	Y EH G N AH N AH R AA Y AH N
 yegna	Y EH G N AA
-gangashetty	G AH NG AH SH EY T T IY

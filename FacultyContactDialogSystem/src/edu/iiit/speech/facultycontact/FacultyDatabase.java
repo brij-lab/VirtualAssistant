@@ -70,6 +70,21 @@ public class FacultyDatabase extends SQLiteAssetHelper {
 					+ " and type=" + info_type_id, null, null, null, null);
 			if (c1.moveToFirst()) {
 				info = c1.getString(0);
+			} else {
+				boolean not_found = true;
+				int info_id = 1;
+				while (not_found && info_id < 6) {
+					c1 = qb.query(db, sqlSelect, "faculty_id=" + fac_id
+							+ " and type=" + info_id, null, null, null,
+							null);
+					if (c1.moveToFirst()) {
+						info = c1.getString(0);
+						not_found = false;
+					}
+					else{
+						info_id++;
+					}
+				}
 			}
 		}
 		return info;
@@ -88,15 +103,14 @@ public class FacultyDatabase extends SQLiteAssetHelper {
 		}
 		return fac_id;
 	}
-	
+
 	public String getFacultyNameById(String id) {
 		String fac_name = null;
 		SQLiteDatabase db = getReadableDatabase();
 		SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
 		qb.setTables(TABLE_FACULTY_NAMES);
 		String[] sqlSelect = { "name" };
-		Cursor c1 = qb.query(db, sqlSelect, "id=" + id, null, null,
-				null, null);
+		Cursor c1 = qb.query(db, sqlSelect, "id=" + id, null, null, null, null);
 		if (c1.moveToFirst()) {
 			fac_name = c1.getString(0);
 		}
@@ -116,7 +130,7 @@ public class FacultyDatabase extends SQLiteAssetHelper {
 		}
 		return info_type_id;
 	}
-	
+
 	public String getInfoTypeNameByID(String id) {
 		String info_type_name = null;
 		SQLiteDatabase db = getReadableDatabase();

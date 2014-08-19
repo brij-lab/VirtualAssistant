@@ -16,8 +16,15 @@
         android:contentDescription="Recognition results"
         android:scrollbars="vertical"
         android:text="@string/greeting_text"
-        android:textSize="18dp" >
+        android:textSize="18dp"
+        android:background="#3B5998">
     </TextView>
+    
+    <!-- <ListView
+        android:id="@+id/numberList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView> -->
 
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -54,12 +61,14 @@
         android:text="@string/performance_text" >
     </TextView>
 
-    <Button
+    <ImageButton
+
         android:id="@+id/Button01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0"
-        android:text="@string/speak_button_text" >
-    </Button>
+        android:src="@drawable/mic1">
+    </ImageButton>
+
 </LinearLayout>

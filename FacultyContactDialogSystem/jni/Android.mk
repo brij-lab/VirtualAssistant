@@ -2,7 +2,7 @@
 
 # You MUST change this to the absolute path of the directory containing
 # sphinxbase and pocketsphinx source code.
-SPHINX_PATH := /home/brij/Documents/Android/pocketsphinx-root
+SPHINX_PATH := /home/brij/Documents/IIIT/Speech_Lab/pocketsphinx-root
 
 # Copy this Android.mk along with pocketsphinx_wrap.c and the contents of the 'edu' folder
 # built by swig to the jni/ directory of your Android project.

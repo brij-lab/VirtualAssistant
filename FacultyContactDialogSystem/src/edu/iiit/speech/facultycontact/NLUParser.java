@@ -9,7 +9,8 @@ public class NLUParser {
 
 	private final static String[] stopWords = { "me", "what", "give", "i",
 			"of", "what's", "please", "number", "you", "can", "want", "the",
-			"is", "sir's", "<s>", "</s>", "'s", "a", "thanks", "thank" };
+			"is", "sir's", "<s>", "</s>", "'s", "a", "thanks", "thank", "ko", "call",
+			"karo", "lagao", "kijiye", "kariye", "ke", "par", "pe", "batao", "show" };
 	private final static List<String> STOP_WORDS = Arrays.asList(stopWords);
 
 	private final static String[] numberTypes = { "phone", "office", "cell",
@@ -23,26 +24,33 @@ public class NLUParser {
 		str = preProcess(str);
 
 		if (str != null && str != "") {
-
-			/* Getting number type out of string */
-			String nType = null;
-			for (String type : NUMBER_TYPES) {
-				if (str.indexOf(type) != -1) {
-					nType = type;
-				}
+			
+			if (str.contains("missed")) {
+				// set missed call
+				contextInfo.setName("missed");
 			}
-			contextInfo.setNumberType(nType);
-			if (nType != null) {
-
-				String name = str.replaceAll(nType, "").trim();
-				if (name != null && name != "") {
-					contextInfo.setName(name);
-				} else {
-					contextInfo.setName(null);
+			else
+			{
+				/* Getting number type out of string */
+				String nType = null;
+				for (String type : NUMBER_TYPES) {
+					if (str.indexOf(type) != -1) {
+						nType = type;
+					}
 				}
+				contextInfo.setNumberType(nType);
+				if (nType != null) {
 
-			} else {
-				contextInfo.setName(str);
+					String name = str.replaceAll(nType, "").trim();
+					if (name != null && name != "") {
+						contextInfo.setName(name);
+					} else {
+						contextInfo.setName(null);
+					}
+
+				} else {
+					contextInfo.setName(str);
+				}
 			}
 
 		} else {

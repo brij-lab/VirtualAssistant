@@ -18,8 +18,9 @@ def buildXSet(filename):
 			x_set.append(vals[0].strip())
 			syns = vals[1]
 			syns = syns[syns.find("(") + 1:syns.find(")")]
-			for syn in syns.split(','):
-				x_set.append(syn.strip())
+			if syns.strip() != '':
+				for syn in syns.split(','):
+					x_set.append(syn.strip())
 	x_file.close()
 	print "Done!"
 	return x_set
@@ -27,8 +28,8 @@ def buildXSet(filename):
 def generateLM(template_file_path, x_set):
 	print "Generating all possible sentences..."
 	template_file = open(template_file_path)
-	lm_file = open('/home/brij/Documents/IIIT/Speech/ITRA/LM/lm.txt', 'w')
-	lm_test_file = open('/home/brij/Documents/IIIT/Speech/ITRA/LM/lm.test.txt', 'w')
+	lm_file = open('/home/brij/Documents/IIIT/Speech_Lab/Projects/SpeechLab/LM/lm.txt', 'w')
+	lm_test_file = open('/home/brij/Documents/IIIT/Speech_Lab/Projects/SpeechLab/LM/lm.test.txt', 'w')
 	count = 0
 	for template in template_file:
 		if template.strip() != '':
@@ -83,8 +84,8 @@ def generateLM(template_file_path, x_set):
 	lm_test_file.close()
 	print "Done! Generated total %d sentences." % count
                 
-x_set = buildXSet('/home/brij/Documents/IIIT/Speech/ITRA/LM/faculty_synset')
-generateLM("/home/brij/Documents/IIIT/Speech/ITRA/LM/language_model.txt", x_set)
+x_set = buildXSet('/home/brij/Documents/IIIT/Speech_Lab/Projects/SpeechLab/LM/faculty_synset')
+generateLM("/home/brij/Documents/IIIT/Speech_Lab/Projects/SpeechLab/LM/language_model.txt", x_set)
                
 
 

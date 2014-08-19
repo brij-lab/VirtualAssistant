@@ -20,7 +20,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.speech.tts.TextToSpeech;
@@ -72,6 +75,12 @@ public class FacultyContactActivity extends Activity implements
 	 * Call button
 	 */
 	Button call_button;
+	
+	/**
+	 * List view to show numbers
+	 */
+	//ListView numlist;
+	//ArrayAdapter<String> listAdapter;
 
 	/**
 	 * Initialize text parsing module
@@ -131,13 +140,16 @@ public class FacultyContactActivity extends Activity implements
 		this.rec = new RecognizerTask();
 		this.rec_thread = new Thread(this.rec);
 		this.listening = false;
-		Button b = (Button) findViewById(R.id.Button01);
+		ImageButton b = (ImageButton) findViewById(R.id.Button01);
 		b.setOnTouchListener(this);
 		this.performance_text = (TextView) findViewById(R.id.PerformanceText);
 		this.edit_text = (TextView) findViewById(R.id.TextView01);
 		this.edit_text.setMovementMethod(new ScrollingMovementMethod());
 		this.phnumber_text = (TextView) findViewById(R.id.EditText03);
 		this.call_button = (Button) findViewById(R.id.ButtonCall);
+		//this.numlist = (ListView) findViewById(R.id.numberList);
+		//listAdapter = new ArrayAdapter<String>(this, R.layout.main, R.id.EditText03);
+		//numlist.setAdapter(listAdapter);
 		final Context that = this;
 		call_button.setOnClickListener(new OnClickListener() {
 
@@ -209,15 +221,16 @@ public class FacultyContactActivity extends Activity implements
 		this.edit_text.post(new Runnable() {
 			public void run() {
 				Log.i("Output ######## ", hyp);
+				String hyp1 = hyp.replaceAll("_", " ");
 				FacultyContextInfo facultyContext = nluParser
-						.getContextInfo(hyp);
+						.getContextInfo(hyp1);
 				Log.i("Parser", facultyContext.toString());
 				boolean info_complete = false;
 				if (in_progress) {
-					appendDialogText(hyp, "U");
+					appendDialogText(hyp1, "U");
 					info_complete = dialogManager.manage(facultyContext);
 				} else {
-					setDialogText(hyp, "U");
+					setDialogText(hyp1, "U");
 					info_complete = dialogManager.init(facultyContext);
 					in_progress = true;
 				}
@@ -274,8 +287,7 @@ public class FacultyContactActivity extends Activity implements
 	}
 
 	private void setDialogText(String text, String tag) {
-		this.edit_text.setText(getFormattedText(text, tag) + "\n",
-				TextView.BufferType.SPANNABLE);
+		this.edit_text.setText(getFormattedText(text, tag) + "\n");
 		if ("S".equals(tag)) {
 			speakOut(text);
 		}
@@ -284,8 +296,7 @@ public class FacultyContactActivity extends Activity implements
 	private void appendDialogText(String text, String tag) {
 		this.edit_text.setText(
 				this.edit_text.getText()
-						+ getFormattedText(text, tag).toString() + "\n",
-				TextView.BufferType.SPANNABLE);
+						+ getFormattedText(text, tag).toString() + "\n");
 		if ("S".equals(tag)) {
 			speakOut(text);
 		}
@@ -294,10 +305,10 @@ public class FacultyContactActivity extends Activity implements
 	private Spanned getFormattedText(String text, String tag) {
 		Spanned ftext = null;
 		if ("S".equals(tag)) {
-			ftext = Html.fromHtml("<font color='red'>" + tag + ": " + text
+			ftext = Html.fromHtml("<font color='red'><b>" + tag + ": </b>" + text
 					+ "</font>");
 		} else {
-			ftext = Html.fromHtml("<font color='green'>" + tag + ": " + text
+			ftext = Html.fromHtml("<font color='green'><b>" + tag + ": </b>" + text
 					+ "</font>");
 		}
 		return ftext;

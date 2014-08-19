@@ -38,60 +38,68 @@ public class DialogManager {
 	}
 
 	public boolean manage(FacultyContextInfo contextInfo) {
-		FacultyVerifiedInfo verifyFacultyInfo = db
-				.verifyFacultyInfo(contextInfo);
 		boolean info_complete = false;
-		if (dialogSlots.getFacultyID() == null) {
-			if (verifyFacultyInfo.getFacultyID() == null
-					|| verifyFacultyInfo.getFacultyID() == "") {
-
-				appendDialogText(app.getString(R.string.name_not_found_text),
-						"S");
-
-			} else {
-				// check for ambiguous info else assign to slot
-				if (verifyFacultyInfo.getFacultyID().contains(",")) {
-					StringBuilder sb = new StringBuilder();
-					String[] split = verifyFacultyInfo.getFacultyID()
-							.split(",");
-					int count = 0;
-					for (String fid : split) {
-						sb.append(db.getFacultyNameById(fid));
-						count++;
-						if (count < split.length) {
-							sb.append(", ");
-						}
-					}
-
-					appendDialogText(
-							app.getString(R.string.name_ambiguous_text) + " "
-									+ contextInfo.getName() + " : "
-									+ sb.toString(), "S");
-				} else {
-					dialogSlots.setFacultyID(verifyFacultyInfo.getFacultyID());
-				}
-			}
-		} else {
-			// Change faculty name with new one if uttered
-			// TODO write logic to accept new name even if faculty name is set
-		}
-		if (dialogSlots.getInfoID() == null) {
-			if (verifyFacultyInfo.getInfoTypeID() == null
-					|| verifyFacultyInfo.getInfoTypeID() == "") {
-
-				// Check if info id is not present
-				// prompt to choose Info
-				appendDialogText(app.getString(R.string.numtype_not_found), "S");
-
-			} else {
-				// check for ambiguous info else assign to slot
-				dialogSlots.setInfoID(verifyFacultyInfo.getInfoTypeID());
-			}
-		}
-		if (dialogSlots.getFacultyID() != null
-				&& dialogSlots.getInfoID() != null) {
+		
+		if (contextInfo.getName() != null && contextInfo.getName().equals("missed")) {
+			dialogSlots.setInfoID("missed");
 			info_complete = true;
 		}
+		else
+		{
+			FacultyVerifiedInfo verifyFacultyInfo = db
+					.verifyFacultyInfo(contextInfo);
+			if (dialogSlots.getFacultyID() == null) {
+				if (verifyFacultyInfo.getFacultyID() == null
+						|| verifyFacultyInfo.getFacultyID() == "") {
+
+					appendDialogText(app.getString(R.string.name_not_found_text),
+							"S");
+				} else {
+					// check for ambiguous info else assign to slot
+					if (verifyFacultyInfo.getFacultyID().contains(",")) {
+						StringBuilder sb = new StringBuilder();
+						String[] split = verifyFacultyInfo.getFacultyID()
+								.split(",");
+						int count = 0;
+						for (String fid : split) {
+							sb.append(db.getFacultyNameById(fid));
+							count++;
+							if (count < split.length) {
+								sb.append(", ");
+							}
+						}
+
+						appendDialogText(
+								app.getString(R.string.name_ambiguous_text) + " "
+										+ contextInfo.getName() + " : "
+										+ sb.toString(), "S");
+					} else {
+						dialogSlots.setFacultyID(verifyFacultyInfo.getFacultyID());
+					}
+				}
+			} else {
+				// Change faculty name with new one if uttered
+				// TODO write logic to accept new name even if faculty name is set
+			}
+			if (dialogSlots.getInfoID() == null) {
+				if (verifyFacultyInfo.getInfoTypeID() == null
+						|| verifyFacultyInfo.getInfoTypeID() == "") {
+
+					// Check if info id is not present
+					// prompt to choose Info
+					appendDialogText(app.getString(R.string.numtype_not_found), "S");
+
+				} else {
+					// check for ambiguous info else assign to slot
+					dialogSlots.setInfoID(verifyFacultyInfo.getInfoTypeID());
+				}
+			}
+			if (dialogSlots.getFacultyID() != null
+					&& dialogSlots.getInfoID() != null) {
+				info_complete = true;
+			}
+		}
+		
 		// return the value that signifies whether dialog has ended or not
 		return info_complete;
 	}
@@ -99,34 +107,40 @@ public class DialogManager {
 	private void appendDialogText(String text, String tag) {
 		app.edit_text.setText(
 				app.edit_text.getText()
-						+ getFormattedText(text, tag).toString() + "\n",
-				TextView.BufferType.SPANNABLE);
+						+ getFormattedText(text, tag).toString() + "\n");
 		app.speakOut(text);
 	}
 
 	private Spanned getFormattedText(String text, String tag) {
 		Spanned ftext = null;
 		if ("S".equals(tag)) {
-			ftext = Html.fromHtml("<font color='red'>" + tag + ": " + text
+			ftext = Html.fromHtml("<font color='red'><b>" + tag + ": </b>" + text
 					+ "</font>");
 		} else {
-			ftext = Html.fromHtml("<font color='green'>" + tag + ": " + text
+			ftext = Html.fromHtml("<font color='green'><b>" + tag + ": </b>" + text
 					+ "</font>");
 		}
+		System.out.println("text -------- > " + ftext);
 		return ftext;
 	}
 
 	public void showResults() {
-		appendDialogText(
-				"Showing " + db.getInfoTypeNameByID(dialogSlots.getInfoID())
-						+ " number of "
-						+ db.getFacultyNameById(dialogSlots.getFacultyID()),
-				"S");
-		String facultyInfo = db.getFacultyInfo(dialogSlots.getFacultyID(),
-				dialogSlots.getInfoID());
-		app.phnumber_text.setText(facultyInfo);
-		if (facultyInfo.matches("[0-9]+")) {
-			app.call_button.setEnabled(true);
+		if (dialogSlots.getInfoID().equals("missed")) {
+			appendDialogText("There are currently no missed calls", "S");
+		}
+		else {
+			appendDialogText(
+					"Showing " + db.getInfoTypeNameByID(dialogSlots.getInfoID())
+							+ " number of "
+							+ db.getFacultyNameById(dialogSlots.getFacultyID()),
+					"S");
+			String facultyInfo = db.getFacultyInfo(dialogSlots.getFacultyID(),
+					dialogSlots.getInfoID());
+			app.phnumber_text.setText(facultyInfo);
+			//app.listAdapter.add(facultyInfo);
+			if (facultyInfo.matches("[0-9]+")) {
+				app.call_button.setEnabled(true);
+			}
 		}
 	}
 }
