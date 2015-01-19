@@ -174,10 +174,10 @@ public class RecognizerTask implements Runnable {
 		c.setString("-lm",
 				"/mnt/sdcard/edu.cmu.pocketsphinx/lm/en_US/hub4.5000.DMP");*/
 		c.setString("-dict",
-				"/mnt/sdcard/edu.cmu.pocketsphinx/lm/en_IN/faculty.dic");
+				"/mnt/sdcard/edu.cmu.pocketsphinx/lm/faculty/en_IN/faculty.dic");
 		//c.setString("-fsg", "/mnt/sdcard/edu.cmu.pocketsphinx/lm/en_IN/faculty.fsg");
 		c.setString("-lm",
-				"/mnt/sdcard/edu.cmu.pocketsphinx/lm/en_IN/faculty.lm.DMP");
+				"/mnt/sdcard/edu.cmu.pocketsphinx/lm/faculty/en_IN/faculty.lm.DMP");
 		/*
 		c.setString("-hmm",
 		"/sdcard/Android/data/edu.cmu.pocketsphinx/hmm/zh/tdt_sc_8k");

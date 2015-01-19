@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="hello">Hello World, IIIT Healthcare System Demo!</string>
+    <string name="app_name">Language Tester</string>
+
+    <color name="white">#FFF</color>
+    <color name="green">#088A08</color>
+    <color name="grey">#1E1E1E</color>
+
+    <string name="performance_text">0.00 seconds 0.00 xRT</string>
+    <string name="greeting_text">Please state your symptoms</string>
+    <string name="call_button_text">Call</string>
+    <string name="speak_button_text">Hold and Speak</string>
+    <string name="reset_text">Reset Dialog</string>
+    <string name="phnumber_default_text">Phone number...</string>
+    
+    <string name="dialog_end_text">That\'s all I need!</string>
+    <string name="info_insufficient">Information Insufficient</string>
+    <string name="name_not_found_text">Please tell a name.</string>
+    <string name="name_ambiguous_text">There are more than one </string>
+    <string name="numtype_not_found">Please tell a number type : Mobile, Office, Extension, etc.</string>
+    
+    <!-- TTS Text for Healthcare -->
+    <string name="no_diagnosis">Sorry we could not find any disease matching your symptoms</string>
+    <string name="diagnosis_complete">Diagnosis complete. You have been diagnosed with </string>
+    <string name="partial_diagnosis">There are more than one disease matching your symptoms.</string>
+    <string name="discourse_yes">Say YES if you have following symptoms</string>
+    <string name="discourse_no">. otherwise say NO.</string>
+    <string name="any_more">please state more symptoms. otherwise say no.</string>
+
+</resources>

@@ -1,0 +1,223 @@
+#############################################################################
+## Copyright (c) 1996, Carnegie Mellon University, Cambridge University,
+## Ronald Rosenfeld and Philip Clarkson
+## Version 3, Copyright (c) 2006, Carnegie Mellon University 
+## Contributors includes Wen Xu, Ananlada Chotimongkol, 
+## David Huggins-Daines, Arthur Chan and Alan Black 
+#############################################################################
+=============================================================================
+===============  This file was produced by the CMU-Cambridge  ===============
+===============     Statistical Language Modeling Toolkit     ===============
+=============================================================================
+This is a 3-gram language model, based on a vocabulary of 29 words,
+  which begins "</s>", "<s>", "anxiety"...
+This is a CLOSED-vocabulary model
+  (OOVs eliminated from training data and are forbidden in test data)
+Good-Turing discounting was applied.
+1-gram frequency of frequency : 26 
+2-gram frequency of frequency : 53 0 0 0 0 0 0 
+3-gram frequency of frequency : 79 0 0 0 0 0 0 
+1-gram discounting ratios : 0.96 
+2-gram discounting ratios : 
+3-gram discounting ratios : 
+This file is in the ARPA-standard format introduced by Doug Paul.
+
+p(wd3|wd1,wd2)= if(trigram exists)           p_3(wd1,wd2,wd3)
+                else if(bigram w1,w2 exists) bo_wt_2(w1,w2)*p(wd3|wd2)
+                else                         p(wd3|w2)
+
+p(wd2|wd1)= if(bigram exists) p_2(wd1,wd2)
+            else              bo_wt_1(wd1)*p_1(wd2)
+
+All probs and back-off weights (bo_wt) are given in log10 form.
+
+Data formats:
+
+Beginning of data mark: \data\
+ngram 1=nr            # number of 1-grams
+ngram 2=nr            # number of 2-grams
+ngram 3=nr            # number of 3-grams
+
+\1-grams:
+p_1     wd_1 bo_wt_1
+\2-grams:
+p_2     wd_1 wd_2 bo_wt_2
+\3-grams:
+p_3     wd_1 wd_2 wd_3 
+
+end of data mark: \end\
+
+\data\
+ngram 1=29
+ngram 2=54
+ngram 3=79
+
+\1-grams:
+-0.4827 </s>	-1.2655
+-0.4663 <s>	-1.5670
+-1.9140 anxiety	-0.3038
+-1.9140 backpain	-0.3038
+-1.9140 bad_mood	-0.3038
+-1.9140 bleeding	-0.3038
+-1.9140 bonepain	-0.3038
+-1.9140 chestpain	-0.3038
+-1.9140 cough	-0.3038
+-1.9140 fever	-0.3038
+-1.9140 headache	-0.3038
+-1.9140 headpain	-0.3038
+-1.9140 high_temperature	-0.3038
+-1.9140 hot	-0.3038
+-1.9140 hotness	-0.3038
+-1.9140 insomnia	-0.3038
+-1.9140 irritation	-0.3038
+-1.9140 jointpain	-0.3038
+-1.9140 lack_of_hunger	-0.3038
+-1.9140 nausea	-0.3038
+-1.9140 no	-0.3038
+-1.9140 nope	-0.3038
+-1.9140 nosebleed	-0.3038
+-1.9140 pain_in_head	0.0000
+-1.9140 rash	-0.3038
+-1.9140 sorethroat	-0.3038
+-1.9140 temperature	-0.3038
+-1.9140 ya	-0.3038
+-1.9140 yes	-0.3038
+
+\2-grams:
+-0.0158 </s> <s> -0.1681
+-1.4393 <s> anxiety 0.1761
+-1.4393 <s> backpain 0.1761
+-1.4393 <s> bad_mood 0.1761
+-1.4393 <s> bleeding 0.1761
+-1.4393 <s> bonepain 0.1761
+-1.4393 <s> chestpain 0.1761
+-1.4393 <s> cough 0.1761
+-1.4393 <s> fever 0.1761
+-1.4393 <s> headache 0.1761
+-1.4393 <s> headpain 0.1761
+-1.4393 <s> high_temperature 0.1761
+-1.4393 <s> hot 0.1761
+-1.4393 <s> hotness 0.1761
+-1.4393 <s> insomnia 0.1761
+-1.4393 <s> irritation 0.1761
+-1.4393 <s> jointpain 0.1761
+-1.4393 <s> lack_of_hunger 0.1761
+-1.4393 <s> nausea 0.1761
+-1.4393 <s> no 0.1761
+-1.4393 <s> nope 0.1761
+-1.4393 <s> nosebleed 0.1761
+-1.4393 <s> pain_in_head -0.1277
+-1.4393 <s> rash 0.1761
+-1.4393 <s> sorethroat 0.1761
+-1.4393 <s> temperature 0.1761
+-1.4393 <s> ya 0.1761
+-1.4393 <s> yes 0.1761
+-0.1761 anxiety </s> 1.1461
+-0.1761 backpain </s> 1.1461
+-0.1761 bad_mood </s> 1.1461
+-0.1761 bleeding </s> 1.1461
+-0.1761 bonepain </s> 1.1461
+-0.1761 chestpain </s> 1.1461
+-0.1761 cough </s> 1.1461
+-0.1761 fever </s> 1.1461
+-0.1761 headache </s> 1.1461
+-0.1761 headpain </s> 1.1461
+-0.1761 high_temperature </s> 1.1461
+-0.1761 hot </s> 1.1461
+-0.1761 hotness </s> 1.1461
+-0.1761 insomnia </s> 1.1461
+-0.1761 irritation </s> 1.1461
+-0.1761 jointpain </s> 1.1461
+-0.1761 lack_of_hunger </s> 1.1461
+-0.1761 nausea </s> 1.1461
+-0.1761 no </s> 1.1461
+-0.1761 nope </s> 1.1461
+-0.1761 nosebleed </s> 1.1461
+-0.1761 rash </s> 1.1461
+-0.1761 sorethroat </s> 1.1461
+-0.1761 temperature </s> 1.1461
+-0.1761 ya </s> 1.1461
+-0.1761 yes </s> 1.1461
+
+\3-grams:
+-1.4314 </s> <s> anxiety 
+-1.4314 </s> <s> backpain 
+-1.4314 </s> <s> bad_mood 
+-1.4314 </s> <s> bleeding 
+-1.4314 </s> <s> bonepain 
+-1.4314 </s> <s> chestpain 
+-1.4314 </s> <s> cough 
+-1.4314 </s> <s> headache 
+-1.4314 </s> <s> headpain 
+-1.4314 </s> <s> high_temperature 
+-1.4314 </s> <s> hot 
+-1.4314 </s> <s> hotness 
+-1.4314 </s> <s> insomnia 
+-1.4314 </s> <s> irritation 
+-1.4314 </s> <s> jointpain 
+-1.4314 </s> <s> lack_of_hunger 
+-1.4314 </s> <s> nausea 
+-1.4314 </s> <s> no 
+-1.4314 </s> <s> nope 
+-1.4314 </s> <s> nosebleed 
+-1.4314 </s> <s> pain_in_head 
+-1.4314 </s> <s> rash 
+-1.4314 </s> <s> sorethroat 
+-1.4314 </s> <s> temperature 
+-1.4314 </s> <s> ya 
+-1.4314 </s> <s> yes 
+-0.3010 <s> anxiety </s> 
+-0.3010 <s> backpain </s> 
+-0.3010 <s> bad_mood </s> 
+-0.3010 <s> bleeding </s> 
+-0.3010 <s> bonepain </s> 
+-0.3010 <s> chestpain </s> 
+-0.3010 <s> cough </s> 
+-0.3010 <s> fever </s> 
+-0.3010 <s> headache </s> 
+-0.3010 <s> headpain </s> 
+-0.3010 <s> high_temperature </s> 
+-0.3010 <s> hot </s> 
+-0.3010 <s> hotness </s> 
+-0.3010 <s> insomnia </s> 
+-0.3010 <s> irritation </s> 
+-0.3010 <s> jointpain </s> 
+-0.3010 <s> lack_of_hunger </s> 
+-0.3010 <s> nausea </s> 
+-0.3010 <s> no </s> 
+-0.3010 <s> nope </s> 
+-0.3010 <s> nosebleed </s> 
+-0.3010 <s> pain_in_head </s> 
+-0.3010 <s> rash </s> 
+-0.3010 <s> sorethroat </s> 
+-0.3010 <s> temperature </s> 
+-0.3010 <s> ya </s> 
+-0.3010 <s> yes </s> 
+-0.3010 anxiety </s> <s> 
+-0.3010 backpain </s> <s> 
+-0.3010 bad_mood </s> <s> 
+-0.3010 bleeding </s> <s> 
+-0.3010 bonepain </s> <s> 
+-0.3010 chestpain </s> <s> 
+-0.3010 cough </s> <s> 
+-0.3010 fever </s> <s> 
+-0.3010 headache </s> <s> 
+-0.3010 headpain </s> <s> 
+-0.3010 high_temperature </s> <s> 
+-0.3010 hot </s> <s> 
+-0.3010 hotness </s> <s> 
+-0.3010 insomnia </s> <s> 
+-0.3010 irritation </s> <s> 
+-0.3010 jointpain </s> <s> 
+-0.3010 lack_of_hunger </s> <s> 
+-0.3010 nausea </s> <s> 
+-0.3010 no </s> <s> 
+-0.3010 nope </s> <s> 
+-0.3010 nosebleed </s> <s> 
+-0.3010 rash </s> <s> 
+-0.3010 sorethroat </s> <s> 
+-0.3010 temperature </s> <s> 
+-0.3010 ya </s> <s> 
+-0.3010 yes </s> <s> 
+
+\end\
